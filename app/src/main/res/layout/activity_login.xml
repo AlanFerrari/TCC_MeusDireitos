@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cor_fundo"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/imgVoltar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_arrow_left"
+        app:tint="#B58D1F" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/logo2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="Entrar"
+        android:textColor="#008290"
+        android:textSize="34dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Faça login para continuar"
+        android:layout_marginTop="5dp"
+        android:textColor="#B58D1F"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="5dp"
+        android:text="Digite o seu email"
+        android:textSize="17sp"
+        android:textColor="#008290" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/borda"
+        android:drawableStart="@drawable/ic_email"
+        android:hint=" meusdireitos@meusdireitos.com"
+        android:paddingLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="17sp"
+        android:text="Digite sua senha"
+        android:textColor="#008290" />
+
+    <EditText
+        android:id="@+id/edtSenha"
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/borda"
+        android:drawableStart="@drawable/ic_lock"
+        android:hint=" senha"
+        android:paddingLeft="10dp"/>
+
+    <Button
+        android:id="@+id/btnLogar"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/botao_redondo"
+        android:textColor="@color/white"
+        android:text="Entrar"
+        android:textAllCaps="false"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/txtesqueciSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="35dp"
+        android:text="Esqueci Minha Senha"
+        android:textColor="#B58D1F"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/txtIrCadastrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="0dp"
+        android:text="Não tem Cadastro ?         Cadastre-se Aqui"
+        android:textColor="#008290"
+        android:textSize="18dp" />
+
+</LinearLayout>

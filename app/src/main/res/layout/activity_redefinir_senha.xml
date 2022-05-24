@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cor_fundo"
+    android:orientation="vertical"
+    tools:context=".RedefinirSenha">
+
+    <ImageView
+        android:id="@+id/imgVoltar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_arrow_left"
+        app:tint="#B58D1F" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/logo2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="Crie uma nova"
+        android:textColor="#008290"
+        android:textSize="32dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Senha"
+        android:textColor="#008290"
+        android:textSize="32dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="Nova Senha"
+        android:textColor="#008290"
+        android:textSize="17dp" />
+
+    <EditText
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/borda"
+        android:drawableStart="@drawable/ic_lock"
+        android:hint=" no mínimo 8 caracteres"
+        android:paddingLeft="10sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Repita a Nova Senha"
+        android:textColor="#008290"
+        android:textSize="17dp" />
+
+    <EditText
+        android:layout_width="315dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/borda"
+        android:hint=" no mínimo 8 caracteres"
+        android:drawableStart="@drawable/ic_lock"
+        android:paddingLeft="10sp"/>
+
+
+    <Button
+        android:id="@+id/btnRedefinirSenha"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/botao_redondo"
+        android:text="Redefinir"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22dp" />
+
+</LinearLayout>

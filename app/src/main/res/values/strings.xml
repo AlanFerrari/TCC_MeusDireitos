@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Meus_Direitos</string>
+    <string name="nome_do_advogado">Nome do Advogado</string>
+    <string name="area_de_atuacao">Area de Atuacao</string>
+</resources>
