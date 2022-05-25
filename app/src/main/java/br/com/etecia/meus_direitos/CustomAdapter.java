@@ -1,6 +1,8 @@
 package br.com.etecia.meus_direitos;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,11 +34,21 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.area_atuacao.setText(mCartao.get(position).getNome());
+        holder.imagemCartao.setImageResource(mCartao.get(position).getImagem());
 
-        //intent.putExtra("Nome", mCartao.get(position).getNome());
-        //intent.putExtra("Imagem", mCartao.get(position).getImagem());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, ListaAdvogados.class);
+
+                intent.putExtra("Areas", mCartao.get(position).getNome());
+                intent.putExtra("Imagem", mCartao.get(position).getImagem());
+
+                mContext.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            }
+        });
     }
 
     @Override

@@ -1,11 +1,14 @@
 package br.com.etecia.meus_direitos;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,7 +16,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView voltar, menu;
+    ImageView voltar;
     ArrayList<Area_Atuacao> lstAreas;
 
     @Override
@@ -43,17 +46,48 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
 
-
         voltar = findViewById(R.id.imgVoltar);
-        menu = findViewById(R.id.imgMenu);
 
-        voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Entrar_Como.class);
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_navegacao,menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.PerfilAdvogados:
+                Intent intent = new Intent(this, PerfilAdvogado.class);
                 startActivity(intent);
-                MainActivity.this.finish();
-            }
-        });
+                finish();
+                break;
+
+            case R.id.PesquisarAdvogados:
+                Intent intent1 = new Intent(this, ListaAdvogados.class);
+                startActivity(intent1);
+                finish();
+                break;
+
+            case R.id.informacoes:
+                Intent intent2 = new Intent(this, Informacoes.class);
+                startActivity(intent2);
+                finish();
+                break;
+
+            case R.id.topAppBar:
+                Intent intent3 = new Intent(this, Entrar_Como.class);
+                startActivity(intent3);
+                finish();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

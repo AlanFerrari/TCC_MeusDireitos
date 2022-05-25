@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="br.com.etecia.meus_direitos">
 
     <application
@@ -10,11 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Meus_Direitos">
         <activity
-            android:name=".SolicitarNovaSenha"
+            android:name=".Informacoes"
             android:exported="false" />
         <activity
+            android:name=".SolicitarNovaSenha"
+            android:exported="true" />
+        <activity
             android:name=".PerfilAdvogado"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CadastroAdvogado"
             android:exported="true" />
@@ -38,9 +42,6 @@
         </activity>
         <activity
             android:name=".Login"
-            android:exported="true" />
-        <activity
-            android:name=".Entrar_Como"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

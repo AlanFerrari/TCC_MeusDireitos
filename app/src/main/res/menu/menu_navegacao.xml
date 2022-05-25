@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Perfil"
+        android:id="@+id/PerfilAdvogados"
+        android:orderInCategory="300"
+        android:icon="@drawable/ic_account_box"
+        android:iconTint="@color/cinza"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="Pesquisar"
+        android:id="@+id/PesquisarAdvogados"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_search"
+        android:iconTint="@color/cinza"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:title="Informações"
+        android:id="@+id/informacoes"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_baseline_info"
+        android:iconTint="@color/cinza"
+        app:showAsAction="ifRoom"/>
+
+</menu>
