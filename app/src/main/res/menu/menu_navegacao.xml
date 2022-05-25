@@ -8,6 +8,7 @@
         android:orderInCategory="300"
         android:icon="@drawable/ic_account_box"
         android:iconTint="@color/cinza"
+        android:contentDescription="Perfil do advogado"
         app:showAsAction="ifRoom"/>
 
     <item
@@ -15,6 +16,7 @@
         android:id="@+id/PesquisarAdvogados"
         android:orderInCategory="100"
         android:icon="@drawable/ic_search"
+        android:contentDescription="Pesquisar por advogados"
         android:iconTint="@color/cinza"
         app:showAsAction="ifRoom"/>
 
@@ -22,6 +24,7 @@
         android:title="Informações"
         android:id="@+id/informacoes"
         android:orderInCategory="200"
+        android:contentDescription="Informações do app"
         android:icon="@drawable/ic_baseline_info"
         android:iconTint="@color/cinza"
         app:showAsAction="ifRoom"/>
