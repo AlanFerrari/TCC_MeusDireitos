@@ -28,6 +28,7 @@ public class Entrar_Como extends AppCompatActivity {
                 startActivity(cardCliente);
                 Entrar_Como.this.finish();
                 DefinirUsuario = 1;
+                cardCliente.putExtra("Usuário", DefinirUsuario);
             }
         });
 
@@ -38,7 +39,10 @@ public class Entrar_Como extends AppCompatActivity {
                 startActivity(cardAdvogado);
                 Entrar_Como.this.finish();
                 DefinirUsuario = 2;
+                cardAdvogado.putExtra("Usuário", DefinirUsuario);
             }
         });
+
+
     }
 }

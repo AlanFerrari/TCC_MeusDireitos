@@ -199,26 +199,15 @@
             android:text="Crie uma senha"
             android:textColor="@color/verde" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/senha"
             android:layout_width="315dp"
             android:layout_height="40dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:startIconDrawable="@drawable/ic_lock"
-            app:endIconMode="password_toggle"
+            android:drawableStart="@drawable/ic_lock"
+            android:paddingLeft="10dp"
+            android:background="@drawable/borda"
             android:layout_gravity="center_horizontal"
-            android:hint="no mínimo 8 caracteres">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint=" no mínimo 8 caracteres"/>
 
 
         <Button

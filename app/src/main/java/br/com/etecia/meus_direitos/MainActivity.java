@@ -65,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    Intent cardCliente = getIntent();
+    Intent cardAdvogado = getIntent();
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
