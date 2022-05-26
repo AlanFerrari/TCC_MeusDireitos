@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Area_Atuacao> lstAreas;
     MaterialToolbar toolbar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,13 +57,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Cliquei na seta",
-                        Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Entrar_Como.class);
+                startActivity(intent);
+                finish();
             }
         });
-
-       // ActionBar actionBar = getSupportActionBar();
-       // actionBar.setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -79,25 +78,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.PerfilAdvogados:
-                Intent intent = new Intent(this, PerfilAdvogado.class);
+            case R.id.ListaAdvogados:
+                Intent intent = new Intent(this, ListaAdvogados.class);
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Cliquei no Perfil",
-                        Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.PesquisarAdvogados:
-                Intent intent1 = new Intent(this, ListaAdvogados.class);
-                startActivity(intent1);
-                Toast.makeText(getApplicationContext(), "Cliquei em Pesquisar",
-                        Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.informacoes:
                 Intent intent2 = new Intent(this, Informacoes.class);
                 startActivity(intent2);
-                Toast.makeText(getApplicationContext(), "Cliquei em Informações",
-                    Toast.LENGTH_SHORT).show();
                 break;
 
             default:

@@ -9,6 +9,7 @@ import android.view.View;
 
 public class Entrar_Como extends AppCompatActivity {
 
+    public static int DefinirUsuario;
     CardView entrarCliente, entrarAdvogado;
 
     @Override
@@ -26,6 +27,7 @@ public class Entrar_Como extends AppCompatActivity {
                 Intent cardCliente = new Intent(Entrar_Como.this, MainActivity.class);
                 startActivity(cardCliente);
                 Entrar_Como.this.finish();
+                DefinirUsuario = 1;
             }
         });
 
@@ -35,6 +37,7 @@ public class Entrar_Como extends AppCompatActivity {
                 Intent cardAdvogado = new Intent(Entrar_Como.this, Login.class);
                 startActivity(cardAdvogado);
                 Entrar_Como.this.finish();
+                DefinirUsuario = 2;
             }
         });
     }

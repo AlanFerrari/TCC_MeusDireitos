@@ -3,22 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Perfil"
-        android:id="@+id/PerfilAdvogados"
+        android:title="Advogados"
+        android:id="@+id/ListaAdvogados"
         android:orderInCategory="300"
         android:icon="@drawable/ic_account_box"
         android:iconTint="@color/cinza"
         android:contentDescription="Perfil do advogado"
-        app:showAsAction="ifRoom"/>
-
-    <item
-        android:title="Pesquisar"
-        android:id="@+id/PesquisarAdvogados"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_search"
-        android:contentDescription="Pesquisar por advogados"
-        android:iconTint="@color/cinza"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
     <item
         android:title="Informações"
@@ -27,6 +18,6 @@
         android:contentDescription="Informações do app"
         android:icon="@drawable/ic_baseline_info"
         android:iconTint="@color/cinza"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"/>
 
 </menu>

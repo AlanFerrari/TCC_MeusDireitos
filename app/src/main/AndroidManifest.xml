@@ -45,7 +45,6 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:parentActivityName=".Entrar_Como"
             android:exported="true" />
     </application>
 

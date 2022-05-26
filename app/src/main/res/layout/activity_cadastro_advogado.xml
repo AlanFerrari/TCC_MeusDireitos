@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/imgVoltar"
             android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/ic_arrow_left"
@@ -49,30 +49,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="75dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="5dp"
             android:text="Nome Completo"
             android:textSize="17sp"
             android:textColor="@color/verde" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/nomeAdvogado"
             android:layout_width="315dp"
             android:layout_height="40dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:startIconDrawable="@drawable/ic_account_circle"
+            android:drawableStart="@drawable/ic_account_circle"
+            android:paddingStart="10dp"
             android:layout_gravity="center_horizontal"
-            android:hint="ex: João da Silva Costa">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:background="@drawable/borda"
+            android:hint=" ex: João da Silva Costa"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -84,24 +75,17 @@
             android:text="Data de Nascimento"
             android:textColor="@color/verde" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/nascimento"
             android:layout_width="315dp"
             android:layout_height="40dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:startIconDrawable="@drawable/ic_date"
+            android:background="@drawable/borda"
+            android:paddingStart="10dp"
+            android:drawableStart="@drawable/ic_date"
             android:layout_gravity="center_horizontal"
-            android:hint="ex: 11/04/1989">
+            android:hint=" ex: 11/04/1989"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
 
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -113,24 +97,15 @@
             android:text="E-mail"
             android:textColor="@color/verde" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/emailAdvogado"
             android:layout_width="315dp"
             android:layout_height="40dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:startIconDrawable="@drawable/ic_email"
+            android:drawableStart="@drawable/ic_email"
+            android:background="@drawable/borda"
+            android:paddingStart="10dp"
             android:layout_gravity="center_horizontal"
-            android:hint="ex: meuemail@email.com">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint=" ex: meuemail@email.com"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -142,24 +117,16 @@
             android:text="Telefone Whatsapp"
             android:textColor="@color/verde" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/telefone"
             android:layout_width="315dp"
             android:layout_height="40dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:startIconDrawable="@drawable/ic_phone_android"
+            android:background="@drawable/borda"
+            android:paddingStart="10dp"
+            android:drawableStart="@drawable/ic_phone_android"
             android:layout_gravity="center_horizontal"
-            android:hint="ex: (11) 91234-5678">
+            android:hint=" ex: (11) 91234-5678"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -171,23 +138,16 @@
             android:text="Cidade"
             android:textColor="@color/verde" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/cidade"
             android:layout_width="315dp"
             android:layout_height="40dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
+            android:background="@drawable/borda"
+            android:paddingStart="32dp"
             android:layout_gravity="center_horizontal"
-            android:hint="ex: São Paulo">
+            android:hint=" ex: São Paulo"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
 
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -199,23 +159,15 @@
             android:text="Estado"
             android:textColor="@color/verde" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/estado"
             android:layout_width="315dp"
             android:layout_height="40dp"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
+            android:background="@drawable/borda"
+            android:paddingStart="32dp"
             android:layout_gravity="center_horizontal"
-            android:hint="ex: SP">
+            android:hint=" ex: SP"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:layout_width="wrap_content"
