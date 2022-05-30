@@ -34,48 +34,51 @@ public class PerfilAdvogado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_advogado);
 
+        if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
+            finish();
+            startActivity(new Intent(this, Login.class));
+        }
 
+
+        txtNomeAdvogado =  findViewById(R.id.nomeAdvogado);
+        txtEmail =  findViewById(R.id.email);
+        txtTelefone =  findViewById(R.id.telefone);
+        txtIdade =  findViewById(R.id.idade);
+        txtCidade = findViewById(R.id.cidade);
+        txtEstado = findViewById(R.id.estado);
+        txtRegistro = findViewById(R.id.registroOAB);
         EditarPerfil = findViewById(R.id.btnEditarPerfil);
+
+        User user = SharedPrefManager.getInstance(this).getUser();
+
+
+        txtNomeAdvogado.setText(user.getUsername());
+        txtIdade.setText(user.getIdade());
+        txtEmail.setText(user.getEmail());
+        txtTelefone.setText(user.getTelefone_cel());
+        txtCidade.setText(user.getcidade());
+        txtEstado.setText(user.getestado());
+        txtRegistro.setText(user.getnumero_oab());
 
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PerfilAdvogado.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        toolbar.setNavigationOnClickListener(v -> {
+            Intent intent = new Intent(PerfilAdvogado.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
 
-        txtNomeAdvogado = findViewById(R.id.nomeAdvogado);
-        String nome = getIntent().getStringExtra("nome");
-        txtNomeAdvogado.setText(nome);
+        //when the user presses logout button
+        //calling the logout method
+        // findViewById(R.id.buttonLogout).setOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //    public void onClick(View view) {
+        //        finish();
+        //        SharedPrefManager.getInstance(getApplicationContext()).logout();
+        //    }
+        // });
 
-        txtIdade = findViewById(R.id.idade);
-        String idade = getIntent().getStringExtra("idade");
-        txtIdade.setText(idade);
-
-        txtEmail = findViewById(R.id.email);
-        String email = getIntent().getStringExtra("email");
-        txtEmail.setText(email);
-
-        txtTelefone = findViewById(R.id.telefone);
-        String telefone = getIntent().getStringExtra("telefone");
-        txtTelefone.setText(telefone);
-
-        txtCidade = findViewById(R.id.cidade);
-        String cidade = getIntent().getStringExtra("cidade");
-        txtCidade.setText(cidade);
-
-        txtEstado = findViewById(R.id.estado);
-        String estado = getIntent().getStringExtra("estado");
-        txtEstado.setText(estado);
-
-        txtRegistro = findViewById(R.id.registroOAB);
-        String registro = getIntent().getStringExtra("registro");
-        txtRegistro.setText(registro);
     }
 
     @Override
