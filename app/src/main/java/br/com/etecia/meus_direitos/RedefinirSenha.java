@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 public class RedefinirSenha extends AppCompatActivity {
 
     ImageView voltar;
-    Button RedefinirSenha;
+    Button redefinirSenha;
+    EditText edtNovaSenha;
+    EditText edtRepetirSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +22,9 @@ public class RedefinirSenha extends AppCompatActivity {
         setContentView(R.layout.activity_redefinir_senha);
 
         voltar = findViewById(R.id.imgVoltar);
-        RedefinirSenha = findViewById(R.id.btnRedefinirSenha);
+        redefinirSenha = findViewById(R.id.btnRedefinirSenha);
+        edtNovaSenha = findViewById(R.id.nova_senha);
+        edtRepetirSenha = findViewById(R.id.repetir_nova_senha);
 
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,10 +35,14 @@ public class RedefinirSenha extends AppCompatActivity {
             }
         });
 
-        RedefinirSenha.setOnClickListener(new View.OnClickListener() {
+        redefinirSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RedefinirSenha.this, Login.class);
+
+                intent.putExtra("novaSenha", edtNovaSenha.getText().toString());
+                intent.putExtra("repetirSenha", edtRepetirSenha.getText().toString());
+
                 startActivity(intent);
                 RedefinirSenha.this.finish();
             }

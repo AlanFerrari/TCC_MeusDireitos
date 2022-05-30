@@ -7,60 +7,83 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewAdvogados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:cardCornerRadius="20dp"
-        android:layout_marginBottom="3dp"
         android:layout_marginTop="3dp"
-        app:cardBackgroundColor="@color/cinza">
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="3dp"
+        app:cardBackgroundColor="#E1DFDF"
+        app:cardCornerRadius="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:src="@drawable/ic_account_circle" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="85dp"
+                app:cardCornerRadius="40dp"
+                android:layout_marginRight="8dp"
+                app:cardBackgroundColor="#E1DFDF">
+
+                <ImageView
+                    android:id="@+id/imagem_perfil"
+                    android:layout_width="80dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/ic_account_circle" />
+
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/nomeAdvogado"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:text="@string/nome_do_advogado" />
+                    android:text="@string/nome_do_advogado"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/cidade"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.7"
-                        android:text="Cidade" />
+                        android:text="Cidade"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
 
                     <TextView
+                        android:id="@+id/estado"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.1"
-                        android:text="Estado" />
+                        android:layout_marginLeft="20dp"
+                        android:text="Estado"
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
 
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/nome_area_atuacao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/area_de_atuacao" />
+                    android:layout_marginTop="5dp"
+                    android:text="@string/area_de_atuacao"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
 
             </LinearLayout>
 

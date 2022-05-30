@@ -50,6 +50,12 @@ public class Login extends AppCompatActivity {
         buttonLogin = findViewById(R.id.btnLogar);
         buttonLogin.setOnClickListener(v -> login());
 
+        String usuario = getIntent().getStringExtra("email");
+        edtUsuario.setText(usuario);
+        String senha = getIntent().getStringExtra("senha");
+        edtSenha.setText(senha);
+        String novaSenha = getIntent().getStringExtra("novaSenha");
+
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,7 +91,7 @@ public class Login extends AppCompatActivity {
 
         loggedIn = sharedPreferences.getBoolean(Config.LOGGEDIN_SHARED_PREF, false);
 
-        if(loggedIn){
+        if (loggedIn) {
             // SE ESTIVER LOGADO ENTÃO AO ENTRAR NA APLICAÇÃO VAI PARA TELA SEGUINTE
             Intent intent = new Intent(Login.this, MainActivity.class);
             startActivity(intent);
@@ -99,7 +105,7 @@ public class Login extends AppCompatActivity {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Config.LOGIN_URL,
                 response -> {
-                    if(response.equalsIgnoreCase(Config.LOGIN_SUCCESS)){
+                    if (response.equalsIgnoreCase(Config.LOGIN_SUCCESS)) {
                         editor.putBoolean(Config.LOGGEDIN_SHARED_PREF, true);
                         editor.putString(Config.USUARIO_SHARED_PREF, usuario);
                         editor.commit();
@@ -108,14 +114,15 @@ public class Login extends AppCompatActivity {
                         //SE O LOGIN E SENHA FOR IGUAL AO QUE CONSTA NA TABELA DO BANCO DE DADOS ENTÃO VAI PARA OUTRA TELA
                         startActivity(intent);
                         finish();
-                    }else{
+                    } else {
                         Toast.makeText(Login.this, "Usuário ou senha inválidos!", Toast.LENGTH_LONG).show();
                     }
                 },
-                error -> {}){
+                error -> {
+                }) {
             @Override
             protected Map<String, String> getParams() {
-                Map<String,String> params = new HashMap<>();
+                Map<String, String> params = new HashMap<>();
                 params.put(Config.USUARIO, usuario);
                 params.put(Config.SENHA, senha);
                 return params;

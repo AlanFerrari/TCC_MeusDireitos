@@ -4,7 +4,7 @@
 
     <item
         android:title="Advogados"
-        android:id="@+id/ListaAdvogados"
+        android:id="@+id/advogados"
         android:orderInCategory="300"
         android:icon="@drawable/ic_account_box"
         android:iconTint="@color/cinza"

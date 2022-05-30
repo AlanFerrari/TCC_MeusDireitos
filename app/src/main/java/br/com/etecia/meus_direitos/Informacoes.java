@@ -51,7 +51,7 @@ public class Informacoes extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.ListaAdvogados:
+            case R.id.advogados:
                 Intent intent = new Intent(this, ListaAdvogados.class);
                 startActivity(intent);
                 break;

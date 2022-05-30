@@ -1,26 +1,26 @@
 package br.com.etecia.meus_direitos;
 
-import java.util.Date;
-
 public class Advogados {
+    private int imagem;
     private String userName;
-    private Date DataNacimento;
-    private String email;
-    private String telefone;
     private String cidade;
     private String estado;
-    private String RegistroOAB;
-    private String senha;
+    private String area_atuacao;
 
-    public Advogados(String userName, Date dataNacimento, String email, String telefone, String cidade, String estado, String registroOAB, String senha) {
+    public Advogados(int imagem, String userName, String cidade, String estado, String area_atuacao) {
+        this.imagem = imagem;
         this.userName = userName;
-        DataNacimento = dataNacimento;
-        this.email = email;
-        this.telefone = telefone;
         this.cidade = cidade;
         this.estado = estado;
-        RegistroOAB = registroOAB;
-        this.senha = senha;
+        this.area_atuacao = area_atuacao;
+    }
+
+    public int getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(int imagem) {
+        this.imagem = imagem;
     }
 
     public String getUserName() {
@@ -29,30 +29,6 @@ public class Advogados {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public Date getDataNacimento() {
-        return DataNacimento;
-    }
-
-    public void setDataNacimento(Date dataNacimento) {
-        DataNacimento = dataNacimento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public String getCidade() {
@@ -71,19 +47,11 @@ public class Advogados {
         this.estado = estado;
     }
 
-    public String getRegistroOAB() {
-        return RegistroOAB;
+    public String getArea_atuacao() {
+        return area_atuacao;
     }
 
-    public void setRegistroOAB(String registroOAB) {
-        RegistroOAB = registroOAB;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setArea_atuacao(String area_atuacao) {
+        this.area_atuacao = area_atuacao;
     }
 }

@@ -1,7 +1,6 @@
 package br.com.etecia.meus_direitos;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,18 +11,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("UnusedAssignment")
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Area_Atuacao> lstAreas;
     MaterialToolbar toolbar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    Intent cardCliente = getIntent();
-    Intent cardAdvogado = getIntent();
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -80,15 +74,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
+        Intent defenirUsuario = getIntent();
+        Integer usuario = defenirUsuario.getIntExtra("usuario", 0);
+
         switch (item.getItemId()){
-            case R.id.ListaAdvogados:
-                Intent intent = new Intent(this, ListaAdvogados.class);
-                startActivity(intent);
+            case R.id.advogados:
+                if (usuario == 1) {
+                    Intent lista = new Intent(getApplicationContext(), ListaAdvogados.class);
+                    startActivity(lista);
+                }
+                if (usuario == 2) {
+                    Intent perfil = new Intent(getApplicationContext(), PerfilAdvogado.class);
+                    startActivity(perfil);
+                }
                 break;
 
             case R.id.informacoes:
-                Intent intent2 = new Intent(this, Informacoes.class);
-                startActivity(intent2);
+                Intent info = new Intent(getApplicationContext(), Informacoes.class);
+                startActivity(info);
                 break;
 
             default:

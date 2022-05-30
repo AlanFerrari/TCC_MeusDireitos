@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cor_fundo"
-    android:orientation="vertical"
     tools:context=".Login">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/cor_fundo"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imgVoltar"
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/ic_arrow_left"
             app:tint="#B58D1F" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/logo2" />
 
@@ -38,82 +41,66 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:text="Faça login para continuar"
             android:textColor="#B58D1F"
             android:textSize="20sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="5dp"
-            android:text="Digite o seu email"
-            android:textColor="#008290"
-            android:textSize="17sp" />
-
         <EditText
             android:id="@+id/edtEmail"
-            android:layout_width="315dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="48dp"
+            style="@style/Edit_Text"
+            android:inputType="textEmailAddress"
             android:background="@drawable/borda"
-            android:drawableStart="@drawable/ic_email"
-            android:hint=" meusdireitos@meusdireitos.com"
-            android:paddingLeft="10dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="75dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
-            android:text="Digite sua senha"
-            android:textColor="#008290"
-            android:textSize="17sp" />
+            android:drawableEnd="@drawable/ic_email"
+            android:hint="Email" />
 
         <EditText
             android:id="@+id/edtSenha"
-            android:layout_width="315dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="48dp"
+            style="@style/Edit_Text"
+            android:inputType="textWebPassword"
             android:background="@drawable/borda"
-            android:drawableStart="@drawable/ic_lock"
-            android:hint=" senha"
-            android:paddingLeft="10dp" />
+            android:drawableEnd="@drawable/ic_lock"
+            android:hint="Senha" />
 
         <Button
             android:id="@+id/btnLogar"
-            android:layout_width="170dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            style="@style/Button"
             android:background="@drawable/botao_redondo"
             android:text="Entrar"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="22dp" />
+            android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/txtesqueciSenha"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="35dp"
-            android:text="Esqueci Minha Senha"
-            android:textColor="#B58D1F"
-            android:textSize="17dp" />
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/txtIrCadastrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="0dp"
-            android:text="Não tem Cadastro ?         Cadastre-se Aqui"
-            android:textColor="#008290"
-            android:textSize="18dp" />
+            <TextView
+                android:id="@+id/txtIrCadastrar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não tem Cadastro?\n Cadastre-se Aqui"
+                android:textColor="#008290"
+                android:layout_marginRight="50dp"
+                android:textStyle="bold"
+                android:textSize="18dp" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/txtesqueciSenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Esqueci Minha Senha"
+                android:textColor="#B58D1F"
+                android:textStyle="bold"
+                android:textSize="17dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

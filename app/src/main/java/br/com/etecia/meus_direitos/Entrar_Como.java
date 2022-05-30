@@ -9,7 +9,6 @@ import android.view.View;
 
 public class Entrar_Como extends AppCompatActivity {
 
-    public static int DefinirUsuario;
     CardView entrarCliente, entrarAdvogado;
 
     @Override
@@ -24,25 +23,22 @@ public class Entrar_Como extends AppCompatActivity {
         entrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cardCliente = new Intent(Entrar_Como.this, MainActivity.class);
+                Intent cardCliente = new Intent(getApplicationContext(), MainActivity.class);
+                cardCliente.putExtra("usuario", "1");
                 startActivity(cardCliente);
                 Entrar_Como.this.finish();
-                DefinirUsuario = 1;
-                cardCliente.putExtra("Usuário", DefinirUsuario);
             }
         });
 
         entrarAdvogado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cardAdvogado = new Intent(Entrar_Como.this, Login.class);
+                Intent cardAdvogado = new Intent(getApplicationContext(), Login.class);
+                cardAdvogado.putExtra("usuario", "2");
                 startActivity(cardAdvogado);
                 Entrar_Como.this.finish();
-                DefinirUsuario = 2;
-                cardAdvogado.putExtra("Usuário", DefinirUsuario);
             }
         });
-
 
     }
 }

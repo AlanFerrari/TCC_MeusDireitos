@@ -40,6 +40,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_lista"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:itemCount="10"
