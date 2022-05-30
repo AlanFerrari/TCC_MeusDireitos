@@ -68,7 +68,7 @@ public class CadastroAdvogado extends AppCompatActivity {
         final String username = edtNomeAdvogado.getText().toString().trim();
         final String email = edtEmail.getText().toString().trim();
         final String password = edtSenha.getText().toString().trim();
-        final int idade = Integer.parseInt(edtIdade.getText().toString().trim());
+        final String idade = Integer.toString(Integer.parseInt(edtIdade.getText().toString().trim()));
         final String cidade = edtCidade.getText().toString().trim();
         final String estado = edtEstado.getText().toString().trim();
         final String numero_oab = edtRegistroOAB.getText().toString().trim();
