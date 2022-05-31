@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SolicitarNovaSenha">
+    tools:context=".CodigoDeConfirmacao">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,35 +30,47 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="60dp"
             android:gravity="center_horizontal"
-            android:text="Redefinição de"
+            android:text="Enviamos o código para o seu email"
             android:textColor="#008290"
-            android:textSize="32dp" />
+            android:textSize="20dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Senha"
-            android:textColor="#008290"
-            android:textSize="32dp" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/edtEmail"
             style="@style/Edit_Text"
-            android:inputType="textEmailAddress"
             android:background="@drawable/borda"
-            android:drawableEnd="@drawable/ic_email"
-            android:hint="Digite seu email" />
+            android:drawableEnd="@drawable/ic_baseline_key"
+            android:hint="Insira o código"
+            android:inputType="number" />
 
         <Button
-            android:id="@+id/btnSolicitarSenha"
+            android:id="@+id/btnEnviar"
             style="@style/Button"
             android:background="@drawable/botao_redondo"
             android:text="Enviar"
             android:textAllCaps="false"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="Caso não encontre o email na sua caixa"
+            android:textColor="#008290"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="principal, verifique a caixa de spam"
+            android:layout_marginBottom="40dp"
+            android:textColor="#008290"
+            android:textSize="20dp" />
 
     </LinearLayout>
 

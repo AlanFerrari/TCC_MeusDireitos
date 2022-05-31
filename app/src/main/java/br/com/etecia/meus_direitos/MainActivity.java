@@ -16,7 +16,6 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;
 
-@SuppressWarnings("UnusedAssignment")
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Area_Atuacao> lstAreas;
@@ -74,30 +73,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        Intent defenirUsuario = getIntent();
-        Integer usuario = defenirUsuario.getIntExtra("usuario", 0);
+        String usuario = getIntent().getStringExtra("definirUsuario");
 
         switch (item.getItemId()){
             case R.id.advogados:
-                if (usuario == 1) {
+                if (usuario == "1") {
                     Intent lista = new Intent(getApplicationContext(), ListaAdvogados.class);
                     startActivity(lista);
+                    finish();
+                    break;
                 }
-                if (usuario == 2) {
+                if (usuario == "2") {
                     Intent perfil = new Intent(getApplicationContext(), PerfilAdvogado.class);
                     startActivity(perfil);
+                    finish();
+                    break;
                 }
-                break;
 
             case R.id.informacoes:
                 Intent info = new Intent(getApplicationContext(), Informacoes.class);
                 startActivity(info);
+                finish();
                 break;
 
-            default:
-                break;
         }
-
         return true;
     }
 }

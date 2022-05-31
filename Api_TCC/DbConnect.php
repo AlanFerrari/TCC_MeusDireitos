@@ -1,19 +1,19 @@
 <?
-//these are the server details
-//the username is root by default in case of xampp
-//password is nothing by default
-//and lastly we have the database named android. if your database name is different you have to change it 
-$servername = "MeusDireitos";
-$username = "TCC_Project";
-$password = "523777";
+//estes são os detalhes do servidor
+//o nome de usuário é root por padrão no caso de xampp
+//senha não é nada por padrão
+//e por último temos o banco de dados chamado android. se o nome do seu banco de dados for diferente, você terá que alterá-lo
+$servername = "localhost";
+$username = "root";
+$password = "123456";
 $database = "meusdireitos";
  
  
-//creating a new connection object using mysqli 
+//criando um novo objeto de conexão usando mysqli 
 $conn = new mysqli($servername, $username, $password, $database);
  
-//if there is some error connecting to the database
-//with die we will stop the further execution by displaying a message causing the error 
+//se houver algum erro na conexão com o banco de dados
+//com die vamos parar a execução posterior exibindo uma mensagem causando o erro
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

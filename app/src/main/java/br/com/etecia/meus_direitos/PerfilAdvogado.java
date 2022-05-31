@@ -22,7 +22,6 @@ public class PerfilAdvogado extends AppCompatActivity {
     Button EditarPerfil;
     MaterialToolbar toolbar;
     TextView txtNomeAdvogado;
-    TextView txtIdade;
     TextView txtEmail;
     TextView txtTelefone;
     TextView txtCidade;
@@ -43,7 +42,6 @@ public class PerfilAdvogado extends AppCompatActivity {
         txtNomeAdvogado =  findViewById(R.id.nomeAdvogado);
         txtEmail =  findViewById(R.id.email);
         txtTelefone =  findViewById(R.id.telefone);
-        txtIdade =  findViewById(R.id.idade);
         txtCidade = findViewById(R.id.cidade);
         txtEstado = findViewById(R.id.estado);
         txtRegistro = findViewById(R.id.registroOAB);
@@ -53,7 +51,6 @@ public class PerfilAdvogado extends AppCompatActivity {
 
 
         txtNomeAdvogado.setText(user.getUsername());
-        txtIdade.setText(user.getIdade());
         txtEmail.setText(user.getEmail());
         txtTelefone.setText(user.getTelefone_cel());
         txtCidade.setText(user.getcidade());
@@ -69,15 +66,15 @@ public class PerfilAdvogado extends AppCompatActivity {
             finish();
         });
 
-        //when the user presses logout button
-        //calling the logout method
-        // findViewById(R.id.buttonLogout).setOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View view) {
-        //        finish();
-        //        SharedPrefManager.getInstance(getApplicationContext()).logout();
-        //    }
-        // });
+        //quando o usuário pressiona o botão de sair
+        //chamando o método de logout
+        findViewById(R.id.btnSair).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPrefManager.getInstance(getApplicationContext()).logout();
+                finish();
+            }
+        });
 
     }
 

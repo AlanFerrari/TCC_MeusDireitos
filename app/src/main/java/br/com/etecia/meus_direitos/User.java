@@ -2,21 +2,19 @@ package br.com.etecia.meus_direitos;
 
 public class User {
     private int id;
-    private String username;
+    private String usuario;
     private String email;
     private String cidade;
     private String estado;
     private String numero_oab;
     private String telefone_cel;
-    private int idade;
 
 
 
-    public User(int id, String username, String email, int idade, String cidade, String estado, String numero_oab, String telefone_cel ) {
+    public User(int id, String usuario, String email, String cidade, String estado, String numero_oab, String telefone_cel ) {
         this.id = id;
-        this.username = username;
+        this.usuario = usuario;
         this.email = email;
-        this.idade = idade;
         this.cidade = cidade;
         this.estado = estado;
         this.numero_oab = numero_oab;
@@ -28,16 +26,12 @@ public class User {
         return id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUsuario() {
+        return usuario;
     }
 
     public String getEmail() {
         return email;
-    }
-
-    public int getIdade() {
-        return idade;
     }
 
     public String getcidade() {

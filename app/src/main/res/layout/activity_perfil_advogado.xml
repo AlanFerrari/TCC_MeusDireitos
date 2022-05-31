@@ -30,10 +30,10 @@
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:background="@drawable/perfil_circulo"
             android:scaleType="centerCrop"
-            android:layout_gravity="center_horizontal"
             android:src="@drawable/ic_account_circle" />
 
         <TextView
@@ -41,7 +41,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="-5dp"
             android:text="Nome da Pessoa"
             android:textColor="@color/verde"
             android:textSize="30dp" />
@@ -81,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Email: "
+                android:textStyle="bold"
                 android:textColor="@color/dourado"
                 android:textSize="22sp" />
 
@@ -106,6 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Whatsapp: "
+                android:textStyle="bold"
                 android:textColor="@color/dourado"
                 android:textSize="22sp" />
 
@@ -125,7 +126,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:text="Área de Atuação "
+            android:text="Área de Atuação"
+            android:textStyle="bold"
             android:textColor="@color/dourado"
             android:textSize="22sp" />
 
@@ -150,6 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Cidade: "
+                android:textStyle="bold"
                 android:textColor="@color/dourado"
                 android:textSize="22dp" />
 
@@ -174,6 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Estado: "
+                android:textStyle="bold"
                 android:textColor="@color/dourado"
                 android:textSize="22sp" />
 
@@ -198,6 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:text="Registro na OAB: "
+                android:textStyle="bold"
                 android:textColor="@color/dourado"
                 android:textSize="22sp" />
 
@@ -218,6 +223,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:text="Bibliografia"
+            android:textStyle="bold"
             android:textColor="@color/dourado"
             android:textSize="22sp" />
 
@@ -231,19 +237,41 @@
             android:textColorHint="@color/verde"
             android:textSize="21sp" />
 
-        <Button
-            android:id="@+id/btnEditarPerfil"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
-            android:drawableEnd="@drawable/ic_edit"
-            android:text="Editar Perfil "
-            android:textAllCaps="false"
-            android:textColor="@color/dourado"
-            android:textSize="23sp" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSair"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:drawableLeft="@drawable/ic_baseline_exit_to_app"
+                android:text="Sair"
+                android:textAllCaps="false"
+                android:textColor="@color/dourado"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnEditarPerfil"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="107dp"
+                android:drawableEnd="@drawable/ic_edit"
+                android:text="Editar Perfil"
+                android:textAllCaps="false"
+                android:textColor="@color/dourado"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

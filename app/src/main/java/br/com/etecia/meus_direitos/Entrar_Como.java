@@ -24,7 +24,7 @@ public class Entrar_Como extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent cardCliente = new Intent(getApplicationContext(), MainActivity.class);
-                cardCliente.putExtra("usuario", "1");
+                cardCliente.putExtra("definirUsuario", "1");
                 startActivity(cardCliente);
                 Entrar_Como.this.finish();
             }
@@ -34,7 +34,7 @@ public class Entrar_Como extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent cardAdvogado = new Intent(getApplicationContext(), Login.class);
-                cardAdvogado.putExtra("usuario", "2");
+                cardAdvogado.putExtra("definirUsuario", "2");
                 startActivity(cardAdvogado);
                 Entrar_Como.this.finish();
             }

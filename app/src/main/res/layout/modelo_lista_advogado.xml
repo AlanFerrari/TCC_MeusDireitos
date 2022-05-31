@@ -22,25 +22,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
+            <ImageView
+                android:id="@+id/imagem_perfil"
                 android:layout_width="80dp"
-                android:layout_height="85dp"
-                app:cardCornerRadius="40dp"
-                android:layout_marginRight="8dp"
-                app:cardBackgroundColor="#E1DFDF">
-
-                <ImageView
-                    android:id="@+id/imagem_perfil"
-                    android:layout_width="80dp"
-                    android:layout_height="90dp"
-                    android:src="@drawable/ic_account_circle" />
-
-            </androidx.cardview.widget.CardView>
+                android:layout_height="80dp"
+                android:layout_marginRight="5dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/perfil_circulo"
+                android:src="@drawable/ic_account_circle" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -54,7 +47,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -80,7 +73,7 @@
                     android:id="@+id/nome_area_atuacao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:text="@string/area_de_atuacao"
                     android:textColor="@color/black"
                     android:textSize="15sp" />

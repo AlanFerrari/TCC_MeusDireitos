@@ -4,19 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-/**
- * Created by Belal on 9/5/2017.
- */
-
-//here for this class we are using a singleton pattern
+//aqui para esta classe estamos usando um padrão singleton
 
 public class SharedPrefManager {
 
-    //the constants
+    //as constantes
     private static final String SHARED_PREF_NAME = "simplifiedcodingsharedpref";
-    private static final String KEY_USERNAME = "keyusername";
+    private static final String KEY_USUARIO = "keyusuario";
     private static final String KEY_EMAIL = "keyemail";
-    private static final String KEY_IDADE = "keyidade";
     private static final String KEY_CIDADE = "keycidade";
     private static final String KEY_ESTADO = "keyestado";
     private static final String KEY_NUMERO_OAB = "keynumero_oab";
@@ -37,15 +32,14 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    //method to let the user login
-    //this method will store the user data in shared preferences
+    //método para permitir o login do usuário
+    //este método irá armazenar os dados do usuário em preferências compartilhadas
     public void userLogin(User user) {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(KEY_ID, user.getId());
-        editor.putString(KEY_USERNAME, user.getUsername());
+        editor.putString(KEY_USUARIO, user.getUsuario());
         editor.putString(KEY_EMAIL, user.getEmail());
-        editor.putInt(KEY_IDADE, user.getIdade());
         editor.putString(KEY_CIDADE, user.getcidade());
         editor.putString(KEY_ESTADO, user.getestado());
         editor.putString(KEY_NUMERO_OAB, user.getnumero_oab());
@@ -53,20 +47,19 @@ public class SharedPrefManager {
         editor.apply();
     }
 
-    //this method will checker whether user is already logged in or not
+    //este método irá verificar se o usuário já está logado ou não
     public boolean isLoggedIn() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(KEY_USERNAME, null) != null;
+        return sharedPreferences.getString(KEY_USUARIO, null) != null;
     }
 
-    //this method will give the logged in user
+    //este método dará ao usuário logado
     public User getUser() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return new User(
                 sharedPreferences.getInt(KEY_ID, -1),
-                sharedPreferences.getString(KEY_USERNAME, null),
+                sharedPreferences.getString(KEY_USUARIO, null),
                 sharedPreferences.getString(KEY_EMAIL, null),
-                sharedPreferences.getInt(KEY_IDADE, -1),
                 sharedPreferences.getString(KEY_CIDADE, null),
                 sharedPreferences.getString(KEY_ESTADO, null),
                 sharedPreferences.getString(KEY_NUMERO_OAB, null),
@@ -74,7 +67,7 @@ public class SharedPrefManager {
         );
     }
 
-    //this method will logout the user
+    //este método fará o logout do usuário
     public void logout() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

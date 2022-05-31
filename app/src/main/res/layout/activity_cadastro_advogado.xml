@@ -54,14 +54,6 @@
             android:hint="Nome Completo"/>
 
         <EditText
-            android:id="@+id/idade"
-            style="@style/Edit_Text"
-            android:inputType="number"
-            android:drawableEnd="@drawable/cake_layered"
-            android:background="@drawable/borda"
-            android:hint="Digite sua idade"/>
-
-        <EditText
             android:id="@+id/email"
             style="@style/Edit_Text"
             android:inputType="textEmailAddress"

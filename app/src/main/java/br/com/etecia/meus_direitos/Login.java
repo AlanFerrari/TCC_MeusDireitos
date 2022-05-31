@@ -48,15 +48,15 @@ public class Login extends AppCompatActivity {
             return;
         }
 
-        //if user presses on login
-        //calling the method login
+        //se o usuário pressionar no login
+        //chamando o método login
         findViewById(R.id.btnLogar).setOnClickListener(view -> userLogin());
 
-        //if user presses on not registered
+        //se o usuário pressionar não registrado
         findViewById(R.id.txtIrCadastrar).setOnClickListener(view -> {
-            //open register screen
-            finish();
+            //abrir tela de cadastro
             startActivity(new Intent(getApplicationContext(), CadastroAdvogado.class));
+            finish();
         });
 
         voltar.setOnClickListener(v -> {
@@ -76,73 +76,72 @@ public class Login extends AppCompatActivity {
 
 
     private void userLogin() {
-        //first getting the values
+        //primeiro pegando os valores
         final String email = edtUsuario.getText().toString();
         final String password = edtSenha.getText().toString();
 
-        //validating inputs
+        //validando entradas
         if (TextUtils.isEmpty(email)) {
-            edtUsuario.setError("Please enter your email");
+            edtUsuario.setError("Por favor insira um email");
             edtUsuario.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            edtSenha.setError("Please enter your password");
+            edtSenha.setError("Por favor insira uma senha");
             edtSenha.requestFocus();
             return;
         }
 
-        //if everything is fine
+        //se estiver tudo bem
 
         class UserLogin extends AsyncTask<Void, Void, String> {
 
             ProgressBar progressBar;
 
-            //    @Override
-            //    protected void onPreExecute() {
-            //        super.onPreExecute();
-            //        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-            //        progressBar.setVisibility(View.VISIBLE);
-            //    }
+               @Override
+               protected void onPreExecute() {
+                   super.onPreExecute();
+                   progressBar = (ProgressBar) findViewById(R.id.barraDeProgresso);
+                   progressBar.setVisibility(View.VISIBLE);
+               }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.INVISIBLE);
 
 
                 try {
-                    //converting response to json object
+                    //convertendo a resposta para o objeto json
                     JSONObject obj = new JSONObject(s);
 
-                    //if no error in response
+                    //se não houver erro na resposta
                     if (!obj.getBoolean("error")) {
                         Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
-                        //getting the user from the response
+                        //pega o usuário da resposta
                         JSONObject userJson = obj.getJSONObject("user");
 
-                        //creating a new user object
+                        //criando um novo objeto de usuário
                         User user = new User(
                                 userJson.getInt("id"),
                                 userJson.getString("username"),
                                 userJson.getString("email"),
-                                userJson.getInt("idade"),
                                 userJson.getString("cidade"),
                                 userJson.getString("estado"),
                                 userJson.getString("numero_oab"),
                                 userJson.getString("telefone_cel")
                         );
 
-                        //storing the user in shared preferences
+                        //armazenando o usuário nas preferências compartilhadas
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
-                        //starting the profile activity
-                        finish();
+                        //iniciando a atividade do perfil
                         startActivity(new Intent(getApplicationContext(), PerfilAdvogado.class));
+                        finish();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Invalid email or password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "E-mail ou senha inválidos", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -151,15 +150,15 @@ public class Login extends AppCompatActivity {
 
             @Override
             protected String doInBackground(Void... voids) {
-                //creating request handler object
+                //criando objeto manipulador de requisição
                 RequestHandler requestHandler = new RequestHandler();
 
-                //creating request parameters
+                //criando parâmetros de requisição
                 HashMap<String, String> params = new HashMap<>();
                 params.put("email", email);
                 params.put("password", password);
 
-                //returing the response
+                //retornando a resposta
                 return requestHandler.sendPostRequest(URLs.URL_LOGIN, params);
             }
         }

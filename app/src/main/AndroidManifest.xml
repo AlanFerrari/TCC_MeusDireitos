@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Meus_Direitos">
         <activity
+            android:name=".CodigoDeConfirmacao"
+            android:exported="false" />
+        <activity
             android:name=".Informacoes"
             android:exported="false" />
         <activity
