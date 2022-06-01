@@ -29,8 +29,8 @@ import java.util.Map;
 
 public class Login extends AppCompatActivity {
 
-    private EditText edtUsuario;
-    private EditText edtSenha;
+    EditText edtUsuario;
+    EditText edtSenha;
     ImageView voltar;
     TextView esqueciSenha;
 
@@ -40,7 +40,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         edtUsuario = (EditText) findViewById(R.id.edtEmail);
         edtSenha = (EditText) findViewById(R.id.edtSenha);
-
+        voltar = findViewById(R.id.imgVoltar);
+        esqueciSenha = findViewById(R.id.txtesqueciSenha);
 
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -59,21 +60,24 @@ public class Login extends AppCompatActivity {
             finish();
         });
 
-        voltar.setOnClickListener(v -> {
-            Intent intent = new Intent(Login.this, Entrar_Como.class);
-            startActivity(intent);
-            finish();
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Entrar_Como.class);
+                startActivity(intent);
+                finish();
+            }
         });
-
-        esqueciSenha.setOnClickListener(v -> {
-            Intent intent = new Intent(Login.this, RedefinirSenha.class);
-            startActivity(intent);
-            finish();
+        esqueciSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SolicitarNovaSenha.class);
+                startActivity(intent);
+                finish();
+            }
         });
 
     }
-
-
 
     private void userLogin() {
         //primeiro pegando os valores
@@ -97,19 +101,9 @@ public class Login extends AppCompatActivity {
 
         class UserLogin extends AsyncTask<Void, Void, String> {
 
-            ProgressBar progressBar;
-
-               @Override
-               protected void onPreExecute() {
-                   super.onPreExecute();
-                   progressBar = (ProgressBar) findViewById(R.id.barraDeProgresso);
-                   progressBar.setVisibility(View.VISIBLE);
-               }
-
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                progressBar.setVisibility(View.INVISIBLE);
 
 
                 try {

@@ -11,7 +11,7 @@
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_informacoes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_lista_advogados.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_perfil_advogado.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_redefinir_senha.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_solicitar_nova_senha.xml" value="0.36666666666666664" />
@@ -19,6 +19,7 @@
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/modelo_area_atuacao.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/modelo_lista_advogado.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/menu/menu_navegacao.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/menu/menu_navegacao_advogado.xml" value="0.287962962962963" />
         <entry key="..\:/Users/Laboratorio-Info/Downloads/Meus_Direitos/app/src/main/res/layout/activity_cadastro_advogado.xml" value="0.1661600810536981" />
         <entry key="..\:/Users/Laboratorio-Info/Downloads/Meus_Direitos/app/src/main/res/layout/activity_entrar_como.xml" value="0.25" />
         <entry key="..\:/Users/Laboratorio-Info/Downloads/Meus_Direitos/app/src/main/res/layout/activity_lista_advogados.xml" value="0.25" />

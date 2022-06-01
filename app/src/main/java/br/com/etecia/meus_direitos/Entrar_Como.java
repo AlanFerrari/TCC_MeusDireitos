@@ -10,6 +10,7 @@ import android.view.View;
 public class Entrar_Como extends AppCompatActivity {
 
     CardView entrarCliente, entrarAdvogado;
+    int flagCliente = 1, flagAdvogado = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +25,19 @@ public class Entrar_Como extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent cardCliente = new Intent(getApplicationContext(), MainActivity.class);
-                cardCliente.putExtra("definirUsuario", "1");
+                cardCliente.putExtra("definirUsuario", flagCliente);
                 startActivity(cardCliente);
-                Entrar_Como.this.finish();
+                finish();
             }
         });
 
         entrarAdvogado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cardAdvogado = new Intent(getApplicationContext(), Login.class);
-                cardAdvogado.putExtra("definirUsuario", "2");
+                Intent cardAdvogado = new Intent(getApplicationContext(), PerfilAdvogado.class);
+                cardAdvogado.putExtra("definirUsuario", flagAdvogado);
                 startActivity(cardAdvogado);
-                Entrar_Como.this.finish();
+                finish();
             }
         });
 

@@ -21,12 +21,15 @@ public class RequestHandler{
     //neste aplicativo estamos usando apenas post request
     //no hashmap temos os dados a serem enviados ao servidor em pares chave-valor
     public String sendPostRequest(String requestURL, HashMap<String, String> postDataParams) {
+
         URL url;
 
         StringBuilder sb = new StringBuilder();
         try {
             url = new URL(requestURL);
+
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
             conn.setReadTimeout(15000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
@@ -61,6 +64,21 @@ public class RequestHandler{
         return sb.toString();
     }
 
+    public String sendGetRequest(String requestURL) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            URL url = new URL(requestURL);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+            String response;
+            while ((response = br.readLine()) != null) {
+                sb.append(response + "\n");
+            }
+        } catch (Exception e) {
+        }
+        return sb.toString();
+    }
 
     //este método está convertendo dados de pares de valores-chave em uma string de consulta conforme necessário para enviar ao servidor
     private String getPostDataString(HashMap<String, String> params) throws UnsupportedEncodingException {

@@ -1,7 +1,6 @@
 package br.com.etecia.meus_direitos;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,9 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -33,10 +30,10 @@ public class PerfilAdvogado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_advogado);
 
-        if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
+      /*  if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, Login.class));
-        }
+        }*/
 
 
         txtNomeAdvogado =  findViewById(R.id.nomeAdvogado);
@@ -50,7 +47,7 @@ public class PerfilAdvogado extends AppCompatActivity {
         User user = SharedPrefManager.getInstance(this).getUser();
 
 
-        txtNomeAdvogado.setText(user.getUsername());
+        txtNomeAdvogado.setText(user.getUsuario());
         txtEmail.setText(user.getEmail());
         txtTelefone.setText(user.getTelefone_cel());
         txtCidade.setText(user.getcidade());
@@ -61,7 +58,7 @@ public class PerfilAdvogado extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationOnClickListener(v -> {
-            Intent intent = new Intent(PerfilAdvogado.this, MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PerfilAdvogado.class);
             startActivity(intent);
             finish();
         });
@@ -82,7 +79,7 @@ public class PerfilAdvogado extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_navegacao, menu);
+        inflater.inflate(R.menu.menu_navegacao_cliente, menu);
 
         return true;
     }
@@ -91,17 +88,9 @@ public class PerfilAdvogado extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.advogados:
-                Intent intent = new Intent(this, ListaAdvogados.class);
-                startActivity(intent);
-                break;
-
             case R.id.informacoes:
                 Intent intent2 = new Intent(this, Informacoes.class);
                 startActivity(intent2);
-                break;
-
-            default:
                 break;
         }
 
