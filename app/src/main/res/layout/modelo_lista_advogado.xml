@@ -20,6 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -28,8 +29,7 @@
                 android:layout_height="80dp"
                 android:layout_marginRight="5dp"
                 android:scaleType="centerCrop"
-                android:background="@drawable/perfil_circulo"
-                android:src="@drawable/ic_account_circle" />
+                android:src="@drawable/perfil_circulo" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

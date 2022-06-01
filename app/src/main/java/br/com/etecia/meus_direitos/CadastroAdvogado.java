@@ -62,21 +62,12 @@ public class CadastroAdvogado extends AppCompatActivity {
             //aqui vamos registrar o usuário no servidor
             registerUser();
             Intent intent = new Intent(getApplicationContext(), Chip_filtro.class);
-            startActivityForResult(intent, 101);
+            startActivity(intent);
+            finish();
         });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 101){
-            //pra onde vai mandar as areas filtradas
-            TextView textView = findViewById(R.id.area_atuacao);
-            textView.setText(data.getStringExtra("areas"));
-
-        }
-    }
 
     private void registerUser() {
         final String username = edtNomeAdvogado.getText().toString().trim();
