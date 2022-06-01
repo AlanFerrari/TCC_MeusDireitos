@@ -79,7 +79,7 @@ public class PerfilAdvogado extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_navegacao_cliente, menu);
+        inflater.inflate(R.menu.menu_navegacao_advogado, menu);
 
         return true;
     }
@@ -89,7 +89,7 @@ public class PerfilAdvogado extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.informacoes:
-                Intent intent2 = new Intent(this, Informacoes.class);
+                Intent intent2 = new Intent(this, InformacoesC.class);
                 startActivity(intent2);
                 break;
         }

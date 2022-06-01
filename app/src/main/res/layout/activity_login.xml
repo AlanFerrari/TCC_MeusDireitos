@@ -29,7 +29,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:text="Entrar"
-            android:textColor="#008290"
+            android:textColor="@color/verde"
             android:textSize="34dp" />
 
         <TextView
@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:text="Faça login para continuar"
-            android:textColor="#B58D1F"
+            android:textColor="@color/dourado"
             android:textSize="20sp" />
 
         <EditText

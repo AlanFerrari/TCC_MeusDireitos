@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -74,34 +73,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        Intent intent = getIntent();
-
-        int user = intent.getIntExtra("definirUsuario", 0);
-        Toast.makeText(getApplicationContext(), user, Toast.LENGTH_SHORT).show();
-
-
         switch (item.getItemId()){
             case R.id.advogados:
-                if (user == 1) {
                     Intent lista = new Intent(getApplicationContext(), ListaAdvogados.class);
-
                     startActivity(lista);
                     finish();
                     break;
-                }
-                if (user == 2) {
-                    Intent perfil = new Intent(getApplicationContext(), PerfilAdvogado.class);
-                    startActivity(perfil);
-                    finish();
-                    break;
-                }
 
             case R.id.informacoes:
-                Intent info = new Intent(getApplicationContext(), Informacoes.class);
+                Intent info = new Intent(getApplicationContext(), InformacoesC.class);
                 startActivity(info);
                 finish();
                 break;
-
         }
         return true;
     }

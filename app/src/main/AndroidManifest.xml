@@ -11,10 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Meus_Direitos">
         <activity
+            android:name=".Chip_filtro"
+            android:exported="false" />
+        <activity
+            android:name=".InformacoesA"
+            android:exported="false" />
+        <activity
             android:name=".CodigoDeConfirmacao"
             android:exported="false" />
         <activity
-            android:name=".Informacoes"
+            android:name=".InformacoesC"
             android:exported="false" />
         <activity
             android:name=".SolicitarNovaSenha"

@@ -1,5 +1,6 @@
 package br.com.etecia.meus_direitos;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -59,7 +61,21 @@ public class CadastroAdvogado extends AppCompatActivity {
             //se o usuário pressionou o botão registrar
             //aqui vamos registrar o usuário no servidor
             registerUser();
+            Intent intent = new Intent(getApplicationContext(), Chip_filtro.class);
+            startActivityForResult(intent, 101);
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 101){
+            //pra onde vai mandar as areas filtradas
+            TextView textView = findViewById(R.id.area_atuacao);
+            textView.setText(data.getStringExtra("areas"));
+
+        }
     }
 
     private void registerUser() {

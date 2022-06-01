@@ -12,7 +12,7 @@ import android.view.View;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-public class Informacoes extends AppCompatActivity {
+public class InformacoesC extends AppCompatActivity {
 
     MaterialToolbar toolbar;
 
@@ -28,7 +28,7 @@ public class Informacoes extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Informacoes.this, MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -50,19 +50,15 @@ public class Informacoes extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.advogados:
-                Intent intent = new Intent(this, ListaAdvogados.class);
+                Intent intent = new Intent(getApplicationContext(), ListaAdvogados.class);
                 startActivity(intent);
                 break;
 
             case R.id.informacoes:
-                Intent intent2 = new Intent(this, Informacoes.class);
+                Intent intent2 = new Intent(getApplicationContext(), InformacoesC.class);
                 startActivity(intent2);
                 break;
-
-            default:
-                break;
         }
-
         return true;
     }
 }
