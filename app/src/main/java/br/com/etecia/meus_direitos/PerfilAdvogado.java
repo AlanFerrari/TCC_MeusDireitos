@@ -30,10 +30,10 @@ public class PerfilAdvogado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_advogado);
 
-      /*  if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
+        if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, Login.class));
-        }*/
+        }
 
 
         txtNomeAdvogado =  findViewById(R.id.nomeAdvogado);

@@ -72,7 +72,7 @@
         <EditText
             android:id="@+id/estado"
             style="@style/Edit_Text"
-            android:inputType="textFilter"
+            android:inputType="text"
             android:drawableEnd="@drawable/ic_baseline_location_city"
             android:background="@drawable/borda"
             android:hint="Estado em que mora"/>
@@ -80,7 +80,7 @@
         <EditText
             android:id="@+id/cidade"
             style="@style/Edit_Text"
-            android:inputType="textFilter"
+            android:inputType="text"
             android:drawableEnd="@drawable/ic_baseline_location_city"
             android:background="@drawable/borda"
             android:hint="Cidade em que mora"/>
@@ -88,7 +88,7 @@
         <EditText
             android:id="@+id/registroOAB"
             style="@style/Edit_Text"
-            android:inputType="number"
+            android:inputType="textWebPassword"
             android:drawableEnd="@drawable/ic_baseline_work"
             android:background="@drawable/borda"
             android:hint="Número de Registro no OAB"/>

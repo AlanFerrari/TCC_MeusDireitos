@@ -52,7 +52,18 @@
                 android:layout_marginLeft="90dp"
                 android:background="@drawable/ic_baseline_filter_alt"/>
 
-        </LinearLayout>
+            </LinearLayout>
+
+        <Spinner
+            android:id="@+id/spinnerFiltro"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="-15dp"
+            android:layout_marginRight="05dp"
+            android:layout_marginLeft="200dp"
+            android:visibility="gone"
+            android:background="@drawable/cor_fundo"
+            android:spinnerMode="dropdown" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_lista"

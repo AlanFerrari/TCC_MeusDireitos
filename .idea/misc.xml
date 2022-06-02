@@ -6,7 +6,8 @@
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/drawable/borda.xml" value="0.2065" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/drawable/cor_fundo.xml" value="0.14" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/drawable/ic_baseline_location_city.xml" value="0.2985" />
-        <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_cadastro_advogado.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_cadastro_advogado.xml" value="0.1" />
+        <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_chip_filtro.xml" value="0.1" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_entrar_como.xml" value="0.36102564102564105" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_informacoes.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_lista_advogados.xml" value="0.36666666666666664" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/activity_splash.xml" value="0.36102564102564105" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/modelo_area_atuacao.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/modelo_lista_advogado.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/layout/spinner.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/menu/menu_navegacao.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/menu/menu_navegacao_advogado.xml" value="0.287962962962963" />
         <entry key="..\:/Users/Laboratorio-Info/Downloads/Meus_Direitos/app/src/main/res/layout/activity_cadastro_advogado.xml" value="0.1661600810536981" />

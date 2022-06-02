@@ -12,16 +12,18 @@
         android:theme="@style/Theme.Meus_Direitos">
         <activity
             android:name=".Chip_filtro"
-            android:exported="false" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".InformacoesA"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CodigoDeConfirmacao"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".InformacoesC"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SolicitarNovaSenha"
             android:exported="true" />

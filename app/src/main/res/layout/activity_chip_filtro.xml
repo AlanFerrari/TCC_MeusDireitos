@@ -43,7 +43,7 @@
         <com.google.android.material.chip.ChipGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp">
 
             <com.google.android.material.chip.Chip
@@ -51,7 +51,6 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:text="Civil"
                 android:textSize="18dp" />
 
@@ -60,7 +59,6 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:text="Consumidor"
                 android:textSize="18dp" />
 
@@ -69,17 +67,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:text="Trabalhista"
-                android:textSize="18dp" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipPenal"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:text="Penal"
                 android:textSize="18dp" />
 
             <com.google.android.material.chip.Chip
@@ -87,8 +75,15 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:text="Empresarial"
+                android:textSize="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPenal"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Penal"
                 android:textSize="18dp" />
 
             <com.google.android.material.chip.Chip
@@ -96,17 +91,7 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:text="Ambiental"
-                android:textSize="18dp" />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chipTI"
-                style="@style/Widget.MaterialComponents.Chip.Filter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:text="TI"
                 android:textSize="18dp" />
 
             <com.google.android.material.chip.Chip
@@ -114,7 +99,6 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:text="Contratual"
                 android:textSize="18dp" />
 
@@ -123,8 +107,15 @@
                 style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
                 android:text="Tributário"
+                android:textSize="18dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTI"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TI"
                 android:textSize="18dp" />
 
         </com.google.android.material.chip.ChipGroup>
@@ -148,10 +139,14 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
+            android:lines="7"
+            android:maxLines="9"
+            android:gravity="top"
+            android:padding="10dp"
             android:background="@drawable/borda" />
 
         <Button

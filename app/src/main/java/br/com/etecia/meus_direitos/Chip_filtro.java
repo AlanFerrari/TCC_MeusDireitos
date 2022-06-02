@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,9 +18,10 @@ import java.util.ArrayList;
 
 public class Chip_filtro extends AppCompatActivity {
 
-    Chip civil, consumidor, trabalhista, penal;
+    Chip civil, consumidor, trabalhista, penal, empresarial, ambiental, ti, contratual, tributario;
     ArrayList<String> selectedChipData;
     Button enviar;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +32,28 @@ public class Chip_filtro extends AppCompatActivity {
         consumidor = findViewById(R.id.chipConsumidor);
         trabalhista = findViewById(R.id.chipTrabalhista);
         penal = findViewById(R.id.chipPenal);
+        empresarial = findViewById(R.id.chipEmpresarial);
+        ambiental = findViewById(R.id.chipAmbiental);
+        ti = findViewById(R.id.chipTI);
+        contratual = findViewById(R.id.chipContratual);
+        tributario = findViewById(R.id.chipTributário);
 
         enviar = findViewById(R.id.btnEnviarAreas);
+        spinner = findViewById(R.id.spinnerFiltro);
 
+        spinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                spinner.setVisibility(View.VISIBLE);
+            }
+        });
 
         selectedChipData = new ArrayList<>();
 
         CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                 if (isChecked){
                     selectedChipData.add(buttonView.getText().toString());
                 }
@@ -52,6 +67,11 @@ public class Chip_filtro extends AppCompatActivity {
         consumidor.setOnCheckedChangeListener(checkedChangeListener);
         trabalhista.setOnCheckedChangeListener(checkedChangeListener);
         penal.setOnCheckedChangeListener(checkedChangeListener);
+        empresarial.setOnCheckedChangeListener(checkedChangeListener);
+        ambiental.setOnCheckedChangeListener(checkedChangeListener);
+        ti.setOnCheckedChangeListener(checkedChangeListener);
+        contratual.setOnCheckedChangeListener(checkedChangeListener);
+        tributario.setOnCheckedChangeListener(checkedChangeListener);
 
 
         enviar.setOnClickListener(new View.OnClickListener() {
@@ -65,15 +85,4 @@ public class Chip_filtro extends AppCompatActivity {
         });
     }
 
- /*   @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 101){
-            //pra onde vai mandar as areas filtradas
-            TextView textView = findViewById(R.id.area_atuacao);
-            textView.setText(data.getStringExtra("areas"));
-
-        }
-    }*/
 }
