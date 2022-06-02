@@ -2,6 +2,7 @@ package br.com.etecia.meus_direitos;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +12,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -20,11 +24,33 @@ public class ListaAdvogados extends AppCompatActivity {
 
     MaterialToolbar toolbar;
     ArrayList<Advogados> lstAdvogados;
+    Spinner spinner1, spinner2, spinner3;
+    ImageView filtro;
+    CardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_advogados);
+
+        spinner1 = findViewById(R.id.filtrarArea);
+        spinner2 = findViewById(R.id.filtrarEstado);
+        spinner3 = findViewById(R.id.filtrarCidade);
+        filtro = findViewById(R.id.filtrar);
+        cardView = findViewById(R.id.cardFiltro);
+
+        String [] opcoes = {"Todas", "Penal", "Empresarial", "Consumidor", "Trabalhista", "Ambiental", "Civil", "TI", "Contratual", "Tributário"};
+
+        ArrayAdapter <String> adapter = new ArrayAdapter<>(this, R.layout.spinner_personalizado, opcoes);
+        spinner1.setAdapter(adapter);
+
+        filtro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardView.setVisibility(View.VISIBLE);
+            }
+        });
+
 
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);

@@ -29,6 +29,7 @@
                 android:layout_height="80dp"
                 android:layout_marginRight="5dp"
                 android:scaleType="centerCrop"
+                android:background="@drawable/ic_account_circle"
                 android:src="@drawable/perfil_circulo" />
 
             <LinearLayout

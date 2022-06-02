@@ -38,32 +38,120 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
                 android:gravity="center_horizontal"
                 android:text="Advogados"
-                android:layout_marginLeft="120dp"
                 android:textColor="#008290"
                 android:textSize="30sp" />
 
             <ImageView
-                android:id="@+id/filtro"
+                android:id="@+id/filtrar"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="90dp"
-                android:background="@drawable/ic_baseline_filter_alt"/>
+                android:layout_marginTop="8dp"
+                android:background="@drawable/ic_baseline_filter_alt" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardFiltro"
+            android:layout_width="200dp"
+            android:layout_height="285dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="-10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="#DFDDDD"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:text="Filtro Personalizado"
+                    android:textColor="@color/verde"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="25dp"
+                    android:text="Area de Atuação"
+                    android:textColor="@color/dourado"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/filtrarArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="15dp"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Estado"
+                    android:textColor="@color/dourado"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/filtrarEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="15dp"
+                    android:spinnerMode="dropdown" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Cidade"
+                    android:textColor="@color/dourado"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/filtrarCidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="15dp"
+                    android:spinnerMode="dropdown" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:paddingTop="0dp"
+                    android:text="Filtrar"
+                    android:textAllCaps="false"
+                    android:background="@drawable/botao_redondo"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="13dp"/>
 
             </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spinnerFiltro"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="-15dp"
-            android:layout_marginRight="05dp"
-            android:layout_marginLeft="200dp"
-            android:visibility="gone"
-            android:background="@drawable/cor_fundo"
-            android:spinnerMode="dropdown" />
+        </androidx.cardview.widget.CardView>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_lista"

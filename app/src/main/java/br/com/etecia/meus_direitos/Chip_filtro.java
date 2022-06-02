@@ -1,6 +1,5 @@
 package br.com.etecia.meus_direitos;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,9 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
 
@@ -21,7 +17,6 @@ public class Chip_filtro extends AppCompatActivity {
     Chip civil, consumidor, trabalhista, penal, empresarial, ambiental, ti, contratual, tributario;
     ArrayList<String> selectedChipData;
     Button enviar;
-    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +34,6 @@ public class Chip_filtro extends AppCompatActivity {
         tributario = findViewById(R.id.chipTributário);
 
         enviar = findViewById(R.id.btnEnviarAreas);
-        spinner = findViewById(R.id.spinnerFiltro);
-
-        spinner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                spinner.setVisibility(View.VISIBLE);
-            }
-        });
 
         selectedChipData = new ArrayList<>();
 
