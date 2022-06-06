@@ -2,30 +2,22 @@ package br.com.etecia.meus_direitos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
+
+import br.com.etecia.meus_direitos.objetos.User;
 
 public class Login extends AppCompatActivity {
 
@@ -45,7 +37,7 @@ public class Login extends AppCompatActivity {
 
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, PerfilAdvogado.class));
+            startActivity(new Intent(this, PerfilAdvogado_Adv.class));
             return;
         }
 
@@ -82,7 +74,7 @@ public class Login extends AppCompatActivity {
     private void userLogin() {
         //primeiro pegando os valores
         final String email = edtUsuario.getText().toString();
-        final String password = edtSenha.getText().toString();
+        final String senha = edtSenha.getText().toString();
 
         //validando entradas
         if (TextUtils.isEmpty(email)) {
@@ -91,7 +83,7 @@ public class Login extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(senha)) {
             edtSenha.setError("Por favor insira uma senha");
             edtSenha.requestFocus();
             return;
@@ -120,7 +112,7 @@ public class Login extends AppCompatActivity {
                         //criando um novo objeto de usuário
                         User user = new User(
                                 userJson.getInt("id"),
-                                userJson.getString("username"),
+                                userJson.getString("usuario"),
                                 userJson.getString("email"),
                                 userJson.getString("cidade"),
                                 userJson.getString("estado"),
@@ -132,7 +124,7 @@ public class Login extends AppCompatActivity {
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
                         //iniciando a atividade do perfil
-                        startActivity(new Intent(getApplicationContext(), PerfilAdvogado.class));
+                        startActivity(new Intent(getApplicationContext(), PerfilAdvogado_Adv.class));
                         finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "E-mail ou senha inválidos", Toast.LENGTH_SHORT).show();
@@ -150,7 +142,7 @@ public class Login extends AppCompatActivity {
                 //criando parâmetros de requisição
                 HashMap<String, String> params = new HashMap<>();
                 params.put("email", email);
-                params.put("password", password);
+                params.put("senha", senha);
 
                 //retornando a resposta
                 return requestHandler.sendPostRequest(URLs.URL_LOGIN, params);

@@ -32,7 +32,7 @@ public class Entrar_Como extends AppCompatActivity {
         entrarAdvogado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cardAdvogado = new Intent(getApplicationContext(), PerfilAdvogado.class);
+                Intent cardAdvogado = new Intent(getApplicationContext(), PerfilAdvogado_Adv.class);
                 startActivity(cardAdvogado);
                 finish();
             }

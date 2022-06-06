@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-public class PerfilAdvogado extends AppCompatActivity {
+import br.com.etecia.meus_direitos.objetos.User;
+
+public class PerfilAdvogado_Adv extends AppCompatActivity {
 
     Button EditarPerfil;
     MaterialToolbar toolbar;
@@ -28,7 +30,7 @@ public class PerfilAdvogado extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_advogado);
+        setContentView(R.layout.activity_perfil_advogado_adv);
 
         if (!SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -50,15 +52,15 @@ public class PerfilAdvogado extends AppCompatActivity {
         txtNomeAdvogado.setText(user.getUsuario());
         txtEmail.setText(user.getEmail());
         txtTelefone.setText(user.getTelefone_cel());
-        txtCidade.setText(user.getcidade());
-        txtEstado.setText(user.getestado());
-        txtRegistro.setText(user.getnumero_oab());
+        txtCidade.setText(user.getCidade());
+        txtEstado.setText(user.getEstado());
+        txtRegistro.setText(user.getNumero_oab());
 
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), PerfilAdvogado.class);
+            Intent intent = new Intent(getApplicationContext(), PerfilAdvogado_Adv.class);
             startActivity(intent);
             finish();
         });

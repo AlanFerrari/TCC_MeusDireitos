@@ -1,4 +1,4 @@
-package br.com.etecia.meus_direitos;
+package br.com.etecia.meus_direitos.objetos;
 
 public class Area_Atuacao {
     private String nome;

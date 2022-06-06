@@ -1,4 +1,4 @@
-package br.com.etecia.meus_direitos;
+package br.com.etecia.meus_direitos.objetos;
 
 public class User {
     private int id;
@@ -21,32 +21,59 @@ public class User {
         this.telefone_cel = telefone_cel;
     }
 
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsuario() {
         return usuario;
     }
 
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public String getcidade() {
-        return  cidade;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getestado() {
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
         return estado;
     }
 
-    public String getnumero_oab() {
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getNumero_oab() {
         return numero_oab;
+    }
+
+    public void setNumero_oab(String numero_oab) {
+        this.numero_oab = numero_oab;
     }
 
     public String getTelefone_cel() {
         return telefone_cel;
+    }
+
+    public void setTelefone_cel(String telefone_cel) {
+        this.telefone_cel = telefone_cel;
     }
 }

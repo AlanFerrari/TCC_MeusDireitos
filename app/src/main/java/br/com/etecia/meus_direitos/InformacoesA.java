@@ -19,7 +19,7 @@ public class InformacoesA extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_informacoes2);
+        setContentView(R.layout.activity_informacoes_adv);
         toolbar = findViewById(R.id.topAppBar);
 
         setSupportActionBar(toolbar);
@@ -27,7 +27,7 @@ public class InformacoesA extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PerfilAdvogado.class);
+                Intent intent = new Intent(getApplicationContext(), PerfilAdvogado_Adv.class);
                 startActivity(intent);
                 finish();
             }

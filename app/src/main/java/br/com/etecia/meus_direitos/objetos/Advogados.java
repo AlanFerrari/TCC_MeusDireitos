@@ -1,4 +1,4 @@
-package br.com.etecia.meus_direitos;
+package br.com.etecia.meus_direitos.objetos;
 
 public class Advogados {
     private int imagem;

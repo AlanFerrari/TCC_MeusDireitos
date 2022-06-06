@@ -1,25 +1,24 @@
 package br.com.etecia.meus_direitos;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+
+import br.com.etecia.meus_direitos.objetos.User;
 
 public class CadastroAdvogado extends AppCompatActivity {
 
@@ -61,18 +60,16 @@ public class CadastroAdvogado extends AppCompatActivity {
             //se o usuário pressionou o botão registrar
             //aqui vamos registrar o usuário no servidor
             registerUser();
-            Intent intent = new Intent(getApplicationContext(), Chip_filtro.class);
+            Intent intent = new Intent(getApplicationContext(), Chip_filtro_areas.class);
             startActivity(intent);
             finish();
         });
     }
 
-
-
     private void registerUser() {
-        final String username = edtNomeAdvogado.getText().toString().trim();
+        final String usuario = edtNomeAdvogado.getText().toString().trim();
         final String email = edtEmail.getText().toString().trim();
-        final String password = edtSenha.getText().toString().trim();
+        final String senha = edtSenha.getText().toString().trim();
         final String cidade = edtCidade.getText().toString().trim();
         final String estado = edtEstado.getText().toString().trim();
         final String numero_oab = edtRegistroOAB.getText().toString().trim();
@@ -81,7 +78,7 @@ public class CadastroAdvogado extends AppCompatActivity {
 
         //primeiro faremos as validações
 
-        if (TextUtils.isEmpty(username)) {
+        if (TextUtils.isEmpty(usuario)) {
             edtNomeAdvogado.setError("Por favor insira seu nome completo");
             edtNomeAdvogado.requestFocus();
             return;
@@ -99,7 +96,7 @@ public class CadastroAdvogado extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(senha)) {
             edtSenha.setError("Insira uma senha");
             edtSenha.requestFocus();
             return;
@@ -142,9 +139,9 @@ public class CadastroAdvogado extends AppCompatActivity {
 
                 //criando parâmetros de requisição
                 HashMap<String, String> params = new HashMap<>();
-                params.put("username", username);
+                params.put("usuario", usuario);
                 params.put("email", email);
-                params.put("password", password);
+                params.put("senha", senha);
                 params.put("cidade", cidade);
                 params.put("estado", estado);
                 params.put("numero_oab", numero_oab);
@@ -157,7 +154,7 @@ public class CadastroAdvogado extends AppCompatActivity {
                       @Override
                        protected void onPreExecute() {
                           super.onPreExecute();
-                          //displaying the progress bar while user registers on the server
+                          //exibindo a barra de progresso enquanto o usuário se registra no servidor
                           progressBar = (ProgressBar) findViewById(R.id.barraDeProgresso);
                           progressBar.setVisibility(View.VISIBLE);
                       }
@@ -166,7 +163,7 @@ public class CadastroAdvogado extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 //escondendo a barra de progresso após a conclusão
-                progressBar.setVisibility(View.GONE);
+                //progressBar.setVisibility(View.GONE);
 
                 try {
                     //convertendo a resposta para o objeto json
@@ -182,7 +179,7 @@ public class CadastroAdvogado extends AppCompatActivity {
                         //criando um novo objeto usuário
                         User user = new User(
                                 userJson.getInt("id"),
-                                userJson.getString("username"),
+                                userJson.getString("usuario"),
                                 userJson.getString("email"),
                                 userJson.getString("cidade"),
                                 userJson.getString("estado"),
@@ -194,10 +191,10 @@ public class CadastroAdvogado extends AppCompatActivity {
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
                         //iniciando a atividade do perfil
-                        startActivity(new Intent(getApplicationContext(), PerfilAdvogado.class));
+                        startActivity(new Intent(getApplicationContext(), PerfilAdvogado_Adv.class));
                         finish();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Some error occurred", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Ocorreu algum erro", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

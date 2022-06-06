@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.com.etecia.meus_direitos">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,10 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Meus_Direitos">
         <activity
-            android:name=".Chip_filtro"
-            android:exported="true" >
-
-        </activity>
+            android:name=".Perfil_Advogados_Cli"
+            android:exported="false" />
+        <activity
+            android:name=".Chip_filtro_areas"
+            android:exported="true" />
         <activity
             android:name=".InformacoesA"
             android:exported="true" />
@@ -28,7 +31,7 @@
             android:name=".SolicitarNovaSenha"
             android:exported="true" />
         <activity
-            android:name=".PerfilAdvogado"
+            android:name=".PerfilAdvogado_Adv"
             android:exported="true" />
         <activity
             android:name=".CadastroAdvogado"

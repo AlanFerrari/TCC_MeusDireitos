@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import br.com.etecia.meus_direitos.objetos.Area_Atuacao;
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
     private Context mContext;
     private ArrayList<Area_Atuacao> mCartao;

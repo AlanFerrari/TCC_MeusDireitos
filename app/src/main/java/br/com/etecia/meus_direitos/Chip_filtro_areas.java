@@ -12,7 +12,7 @@ import com.google.android.material.chip.Chip;
 
 import java.util.ArrayList;
 
-public class Chip_filtro extends AppCompatActivity {
+public class Chip_filtro_areas extends AppCompatActivity {
 
     Chip civil, consumidor, trabalhista, penal, empresarial, ambiental, ti, contratual, tributario;
     ArrayList<String> selectedChipData;
@@ -21,7 +21,7 @@ public class Chip_filtro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chip_filtro);
+        setContentView(R.layout.activity_chip_filtro_areas);
 
         civil = findViewById(R.id.chipCivil);
         consumidor = findViewById(R.id.chipConsumidor);

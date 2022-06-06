@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/cor_fundo"
     android:orientation="vertical"
-    tools:context=".Chip_filtro">
+    tools:context=".Chip_filtro_areas">
 
     <LinearLayout
         android:layout_width="match_parent"

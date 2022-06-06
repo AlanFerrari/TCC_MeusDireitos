@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import br.com.etecia.meus_direitos.objetos.User;
+
 //aqui para esta classe estamos usando um padrão singleton
 
 public class SharedPrefManager {
@@ -40,9 +42,9 @@ public class SharedPrefManager {
         editor.putInt(KEY_ID, user.getId());
         editor.putString(KEY_USUARIO, user.getUsuario());
         editor.putString(KEY_EMAIL, user.getEmail());
-        editor.putString(KEY_CIDADE, user.getcidade());
-        editor.putString(KEY_ESTADO, user.getestado());
-        editor.putString(KEY_NUMERO_OAB, user.getnumero_oab());
+        editor.putString(KEY_CIDADE, user.getCidade());
+        editor.putString(KEY_ESTADO, user.getEstado());
+        editor.putString(KEY_NUMERO_OAB, user.getNumero_oab());
         editor.putString(KEY_TELEFONE, user.getTelefone_cel());
         editor.apply();
     }

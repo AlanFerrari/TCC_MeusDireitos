@@ -16,6 +16,8 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;
 
+import br.com.etecia.meus_direitos.objetos.Area_Atuacao;
+
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<Area_Atuacao> lstAreas;
