@@ -19,7 +19,6 @@ public class Entrar_Como extends AppCompatActivity {
         entrarAdvogado = findViewById(R.id.EntrarAdvogado);
         entrarCliente = findViewById(R.id.EntrarCliente);
 
-
         entrarCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

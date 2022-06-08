@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         lstAreas = new ArrayList<>();
 
-        lstAreas.add(new Area_Atuacao("Todas", 0));
+        lstAreas.add(new Area_Atuacao("Todas", R.drawable.bookshelf));
         lstAreas.add(new Area_Atuacao("Penal", R.drawable.land_rows_vertical));
         lstAreas.add(new Area_Atuacao("Empresarial", R.drawable.office_building));
         lstAreas.add(new Area_Atuacao("Consumidor", R.drawable.human_queue));
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
             case R.id.informacoes:
-                Intent info = new Intent(getApplicationContext(), InformacoesC.class);
+                Intent info = new Intent(getApplicationContext(), InformacoesCli.class);
                 startActivity(info);
                 finish();
                 break;

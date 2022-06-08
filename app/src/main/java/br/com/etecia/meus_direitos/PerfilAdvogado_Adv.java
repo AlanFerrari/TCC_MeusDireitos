@@ -91,7 +91,7 @@ public class PerfilAdvogado_Adv extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.informacoes:
-                Intent intent2 = new Intent(this, InformacoesC.class);
+                Intent intent2 = new Intent(this, InformacoesCli.class);
                 startActivity(intent2);
                 break;
         }

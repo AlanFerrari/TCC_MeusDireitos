@@ -19,13 +19,13 @@
             android:name=".Chip_filtro_areas"
             android:exported="true" />
         <activity
-            android:name=".InformacoesA"
+            android:name=".InformacoesAdv"
             android:exported="true" />
         <activity
             android:name=".CodigoDeConfirmacao"
             android:exported="true" />
         <activity
-            android:name=".InformacoesC"
+            android:name=".InformacoesCli"
             android:exported="true" />
         <activity
             android:name=".SolicitarNovaSenha"

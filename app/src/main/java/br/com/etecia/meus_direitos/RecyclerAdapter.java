@@ -46,7 +46,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, PerfilAdvogado_Adv.class);
+                Intent intent = new Intent(mContext, Perfil_Advogados_Cli.class);
 
                 intent.putExtra("imagem", mCartao.get(position).getImagem());
                 intent.putExtra("nome", mCartao.get(position).getUserName());

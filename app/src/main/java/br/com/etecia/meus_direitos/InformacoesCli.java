@@ -12,7 +12,7 @@ import android.view.View;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-public class InformacoesC extends AppCompatActivity {
+public class InformacoesCli extends AppCompatActivity {
 
     MaterialToolbar toolbar;
 
@@ -55,7 +55,7 @@ public class InformacoesC extends AppCompatActivity {
                 break;
 
             case R.id.informacoes:
-                Intent intent2 = new Intent(getApplicationContext(), InformacoesC.class);
+                Intent intent2 = new Intent(getApplicationContext(), InformacoesCli.class);
                 startActivity(intent2);
                 break;
         }
