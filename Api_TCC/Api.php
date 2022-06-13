@@ -1,8 +1,7 @@
 <?php 
    //obtendo a conexão com o banco de dados
    require_once 'DbConnect.php';
-   include("DbConnect.php");
-
+   
    //an array to display response
    $response = array();
 
@@ -41,14 +40,14 @@
       }else{
       
       //se o usuário for novo criando uma consulta de inserção 
-      $stmt = $conn->prepare("INSERT INTO users (usuario, email, cidade, estado, senha, numero_oab, telefone_cel) VALUES (?, ?, ?, ?, ?, ?, ?)");
-      $stmt->bind_param("ssisssss", $usuario, $email, $cidade, $estado, $senha, $numero_oab, $telefone_cel);
+      $stmt = $conn->prepare("INSERT INTO advogados (usuario, email, cidade, estado, senha, numero_oab, telefone_cel) VALUES (?, ?, ?, ?, ?, ?, ?)");
+      $stmt->bind_param("sssssss", $usuario, $email, $cidade, $estado, $senha, $numero_oab, $telefone_cel);
       
       //se o usuário for adicionado com sucesso ao banco de dados
       if($stmt->execute()){
       
       //buscando o usuário de volta
-      $stmt = $conn->prepare("SELECT id, id, usuario, email, cidade, estado, numero_oab, telefone_cel FROM users WHERE email = ?"); 
+      $stmt = $conn->prepare("SELECT id, id, usuario, email, cidade, estado, numero_oab, telefone_cel FROM advogados WHERE email = ?"); 
       $stmt->bind_param("s",$email);
       $stmt->execute();
       $stmt->bind_result($userid, $id, $usuario, $email, $cidade, $estado, $numero_oab, $telefone_cel);
