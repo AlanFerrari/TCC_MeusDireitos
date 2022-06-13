@@ -1,6 +1,7 @@
 <?php 
    //obtendo a conexão com o banco de dados
    require_once 'DbConnect.php';
+   include("DbConnect.php");
 
    //an array to display response
    $response = array();

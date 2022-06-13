@@ -3,11 +3,11 @@ USE meusdireitos;
 
 CREATE TABLE advogados (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  username VARCHAR(50) NOT NULL,
+  nome VARCHAR(50) NOT NULL,
   email VARCHAR(35) NOT NULL,
   cidade VARCHAR(50) NOT NULL,
   estado CHAR(2) NOT NULL,
-  senha VARCHAR(16) NOT NULL,
+  senha VARCHAR(32) NOT NULL,
   numero_oab VARCHAR(8) NOT NULL,
   telefone_cel VARCHAR(15) NOT NULL,
   area_atuacao VARCHAR(50) NULL,
