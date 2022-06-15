@@ -1,7 +1,7 @@
 <?
 
     $servername = "localhost";
-    $username = "root";
+    $username = "TCC_meusDireitos";
     $password = "123456";
     $database = "meusdireitos";
     
