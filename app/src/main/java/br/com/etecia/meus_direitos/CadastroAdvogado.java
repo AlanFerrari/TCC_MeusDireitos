@@ -174,7 +174,7 @@ public class CadastroAdvogado extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
 
                         //pega o usuário da resposta
-                        JSONObject userJson = obj.getJSONObject("user");
+                        JSONObject userJson = obj.getJSONObject("usuario");
 
                         //criando um novo objeto usuário
                         User user = new User(
