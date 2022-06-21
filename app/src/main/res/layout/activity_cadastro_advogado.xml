@@ -69,21 +69,25 @@
             android:drawableEnd="@drawable/ic_phone_android"
             android:hint="Número do Whatsapp"/>
 
-        <EditText
+        <Spinner
             android:id="@+id/estado"
-            style="@style/Edit_Text"
-            android:inputType="text"
-            android:drawableEnd="@drawable/ic_baseline_location_city"
-            android:background="@drawable/borda"
-            android:hint="Estado em que mora"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/style_spinner_cinza"
+            android:spinnerMode="dropdown" />
 
-        <EditText
+        <Spinner
             android:id="@+id/cidade"
-            style="@style/Edit_Text"
-            android:inputType="text"
-            android:drawableEnd="@drawable/ic_baseline_location_city"
-            android:background="@drawable/borda"
-            android:hint="Cidade em que mora"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/style_spinner_cinza"
+            android:spinnerMode="dropdown" />
 
         <EditText
             android:id="@+id/registroOAB"

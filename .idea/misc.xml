@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Alan/Documents/TrabalhoPAM/TCC_MeusDireitos/app/src/main/res/drawable/borda.xml" value="0.1665" />
+        <entry key="..\:/Users/Alan/Documents/TrabalhoPAM/TCC_MeusDireitos/app/src/main/res/drawable/style_spinner.xml" value="0.1665" />
+        <entry key="..\:/Users/Alan/Documents/TrabalhoPAM/TCC_MeusDireitos/app/src/main/res/drawable/style_spinner_cinza.xml" value="0.2475" />
+        <entry key="..\:/Users/Alan/Documents/TrabalhoPAM/TCC_MeusDireitos/app/src/main/res/drawable/style_spinner_up.xml" value="0.1665" />
+        <entry key="..\:/Users/Alan/Documents/TrabalhoPAM/TCC_MeusDireitos/app/src/main/res/layout/activity_cadastro_advogado.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Alan/Documents/TrabalhoPAM/TCC_MeusDireitos/app/src/main/res/layout/activity_editar_perfil.xml" value="0.1" />
+        <entry key="..\:/Users/Alan/Documents/TrabalhoPAM/TCC_MeusDireitos/app/src/main/res/layout/activity_lista_advogados.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/drawable/bookshelf.xml" value="0.1" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/drawable/borda.xml" value="0.2065" />
         <entry key="..\:/Users/Laboratorio-Info/Documents/TCC_MeusDireitos/app/src/main/res/drawable/cor_fundo.xml" value="0.14" />
