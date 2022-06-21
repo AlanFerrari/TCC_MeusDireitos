@@ -72,8 +72,8 @@ public class CadastroAdvogado extends AppCompatActivity {
         final String senha = edtSenha.getText().toString().trim();
         final String cidade = edtCidade.getText().toString().trim();
         final String estado = edtEstado.getText().toString().trim();
-        final String numero_oab = edtRegistroOAB.getText().toString().trim();
-        final String telefone_cel = edtTelefone.getText().toString().trim();
+        final String numeroOAB = edtRegistroOAB.getText().toString().trim();
+        final String telefone = edtTelefone.getText().toString().trim();
 
 
         //primeiro faremos as validações
@@ -114,13 +114,13 @@ public class CadastroAdvogado extends AppCompatActivity {
             return;
         }
 
-        if (TextUtils.isEmpty(numero_oab)) {
+        if (TextUtils.isEmpty(numeroOAB)) {
             edtRegistroOAB.setError("Insira seu registro na OAB");
             edtRegistroOAB.requestFocus();
             return;
         }
 
-        if (TextUtils.isEmpty(telefone_cel)) {
+        if (TextUtils.isEmpty(telefone)) {
             edtTelefone.setError("Insira o número do seu whatsapp");
             edtTelefone.requestFocus();
             return;
@@ -144,26 +144,16 @@ public class CadastroAdvogado extends AppCompatActivity {
                 params.put("senha", senha);
                 params.put("cidade", cidade);
                 params.put("estado", estado);
-                params.put("numero_oab", numero_oab);
-                params.put("telefone_cel", telefone_cel);
+                params.put("numeroOAB", numeroOAB);
+                params.put("telefone", telefone);
 
                 //retornando a resposta
                 return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);
             }
-/*
-                      @Override
-                       protected void onPreExecute() {
-                          super.onPreExecute();
-                          //exibindo a barra de progresso enquanto o usuário se registra no servidor
-                          progressBar = (ProgressBar) findViewById(R.id.barraDeProgresso);
-                          progressBar.setVisibility(View.VISIBLE);
-                      }
-*/
+
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                //escondendo a barra de progresso após a conclusão
-                //progressBar.setVisibility(View.GONE);
 
                 try {
                     //convertendo a resposta para o objeto json
@@ -191,8 +181,8 @@ public class CadastroAdvogado extends AppCompatActivity {
                         SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
                         //iniciando a atividade do perfil
-                        startActivity(new Intent(getApplicationContext(), PerfilAdvogado_Adv.class));
-                        finish();
+                        //startActivity(new Intent(getApplicationContext(), PerfilAdvogado_Adv.class));
+                        //finish();
                     } else {
                         Toast.makeText(getApplicationContext(), "Ocorreu algum erro", Toast.LENGTH_SHORT).show();
                     }
@@ -201,7 +191,6 @@ public class CadastroAdvogado extends AppCompatActivity {
                 }
             }
         }
-
         //executando a tarefa assíncrona
         RegisterUser ru = new RegisterUser();
         ru.execute();

@@ -97,7 +97,6 @@ public class Login extends AppCompatActivity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
 
-
                 try {
                     //convertendo a resposta para o objeto json
                     JSONObject obj = new JSONObject(s);
@@ -116,8 +115,8 @@ public class Login extends AppCompatActivity {
                                 userJson.getString("email"),
                                 userJson.getString("cidade"),
                                 userJson.getString("estado"),
-                                userJson.getString("numero_oab"),
-                                userJson.getString("telefone_cel")
+                                userJson.getString("numeroOAB"),
+                                userJson.getString("telefone")
                         );
 
                         //armazenando o usuário nas preferências compartilhadas
@@ -148,7 +147,6 @@ public class Login extends AppCompatActivity {
                 return requestHandler.sendPostRequest(URLs.URL_LOGIN, params);
             }
         }
-
         UserLogin ul = new UserLogin();
         ul.execute();
     }
