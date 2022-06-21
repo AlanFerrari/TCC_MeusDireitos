@@ -14,7 +14,7 @@
       
          case 'cadastro':
             //verificando se os parâmetros requeridos estão disponíveis ou não 
-            if(EssesParametrosEstaoDisponiveis(array('usuario','email','cidade','estado','senha','numero_oab','telefone_cel'))){
+            if(EssesParametrosEstaoDisponiveis(array('usuario','email','cidade','estado','senha','numeroOAB','telefone'))){
 
                //pega os valores
                $usuario = $_POST['usuario']; 
@@ -22,8 +22,8 @@
                $cidade = $_POST['cidade'];
                $estado = $_POST['estado'];
                $senha = md5($_POST['senha']);
-               $numero_oab = $_POST['numero_oab'];
-               $telefone_cel = $_POST['telefone_cel']; 
+               $numeroOAB = $_POST['numeroOAB'];
+               $telefone = $_POST['telefone']; 
                
                //verificando se o usuário já existe com este email
                //pois o email deve ser único para cada usuário 
@@ -39,16 +39,16 @@
                   $stmt->close();
                } else {            
                   //se o usuário for novo criando uma consulta de inserção 
-                  $stmt = $conn->prepare("INSERT INTO advogados (usuario, email, cidade, estado, senha, numero_oab, telefone_cel) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                  $stmt->bind_param("sssssss", $usuario, $email, $cidade, $estado, $senha, $numero_oab, $telefone_cel);
+                  $stmt = $conn->prepare("INSERT INTO advogados (usuario, email, cidade, estado, senha, numeroOAB, telefone) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                  $stmt->bind_param("sssssss", $usuario, $email, $cidade, $estado, $senha, $numeroOAB, $telefone);
                   
                   //se o usuário for adicionado com sucesso ao banco de dados
                   if($stmt->execute()){
                      //buscando o usuário de volta
-                     $stmt = $conn->prepare("SELECT id, usuario, email, cidade, estado, numero_oab, telefone_cel FROM advogados WHERE email = ?"); 
+                     $stmt = $conn->prepare("SELECT id, usuario, email, cidade, estado, numeroOAB, telefone FROM advogados WHERE email = ?"); 
                      $stmt->bind_param("s",$email);
                      $stmt->execute();
-                     $stmt->bind_result($id, $usuario, $email, $cidade, $estado, $numero_oab, $telefone_cel);
+                     $stmt->bind_result($id, $usuario, $email, $cidade, $estado, $numeroOAB, $telefone);
                      $stmt->fetch();
                      
                      $advogados = array(
@@ -57,8 +57,8 @@
                      'email'=>$email,
                      'cidade'=>$cidade,
                      'estado'=>$estado,
-                     'numero_oab'=>$numero_oab,
-                     'telefone_cel'=>$telefone_cel
+                     'numeroOAB'=>$numeroOAB,
+                     'telefone'=>$telefone
                      );
                      
                      $stmt->close();
@@ -74,7 +74,6 @@
                   $response['error'] = true; 
                   $response['message'] = 'Os parametros necessarios não estão disponiveis'; 
                }
-
             break; 
 
          case 'login':
@@ -85,7 +84,7 @@
                $senha = md5($_POST['senha']); 
                
                //criando a consulta
-               $stmt = $conn->prepare("SELECT id, usuario, email, cidade, estado, numero_oab, telefone_cel FROM advogados WHERE email = ? AND senha = ?");
+               $stmt = $conn->prepare("SELECT id, usuario, email, cidade, estado, numeroOAB, telefone FROM advogados WHERE email = ? AND senha = ?");
                $stmt->bind_param("ss",$email, $senha);
                
                $stmt->execute();
@@ -95,7 +94,7 @@
                //se o usuário existir com as credenciais fornecidas 
                if($stmt->num_rows > 0){
                
-                  $stmt->bind_result($id, $usuario, $email, $cidade, $estado, $numero_oab, $telefone_cel);
+                  $stmt->bind_result($id, $usuario, $email, $cidade, $estado, $numeroOAB, $telefone);
                   $stmt->fetch();
                   
                   $advogados = array(
@@ -104,8 +103,8 @@
                      'email'=>$email,
                      'cidade'=>$cidade,
                      'estado'=>$estado,
-                     'numero_oab'=>$numero_oab,
-                     'telefone_cel'=>$telefone_cel
+                     'numeroOAB'=>$numeroOAB,
+                     'telefone'=>$telefone
                   );
                
                   $response['error'] = true; 
