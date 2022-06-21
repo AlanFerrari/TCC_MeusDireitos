@@ -156,9 +156,10 @@ public class EditarPerfil extends AppCompatActivity {
                 RequestQueue requestQueue = Volley.newRequestQueue(EditarPerfil.this);
                 requestQueue.add(request);
 
-                Intent intent = new Intent();
+                Intent intent = new Intent(getApplicationContext(), PerfilAdvogado_Adv.class);
                 intent.putExtra("areas", selectedChipData.toString());
                 setResult(101, intent);
+                startActivity(intent);
                 finish();
             }
         });
