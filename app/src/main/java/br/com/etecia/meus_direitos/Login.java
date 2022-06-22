@@ -24,16 +24,17 @@ public class Login extends AppCompatActivity {
     EditText edtUsuario;
     EditText edtSenha;
     ImageView voltar;
-    TextView esqueciSenha;
+    TextView esqueciSenha, cadastrarUsurario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        edtUsuario = (EditText) findViewById(R.id.edtEmail);
-        edtSenha = (EditText) findViewById(R.id.edtSenha);
+        edtUsuario = findViewById(R.id.edtEmail);
+        edtSenha = findViewById(R.id.edtSenha);
         voltar = findViewById(R.id.imgVoltar);
         esqueciSenha = findViewById(R.id.txtesqueciSenha);
+        cadastrarUsurario = findViewById(R.id.txtIrCadastrar);
 
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
@@ -46,7 +47,7 @@ public class Login extends AppCompatActivity {
         findViewById(R.id.btnLogar).setOnClickListener(view -> userLogin());
 
         //se o usuário pressionar não registrado
-        findViewById(R.id.txtIrCadastrar).setOnClickListener(view -> {
+        cadastrarUsurario.setOnClickListener(view -> {
             //abrir tela de cadastro
             startActivity(new Intent(getApplicationContext(), CadastroAdvogado.class));
             finish();

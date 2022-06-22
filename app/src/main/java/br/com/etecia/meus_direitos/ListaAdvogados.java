@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
@@ -21,6 +23,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.ExecutionException;
@@ -35,9 +38,10 @@ public class ListaAdvogados extends AppCompatActivity {
 
     MaterialToolbar toolbar;
     ArrayList<Advogados> lstAdvogados;
-    Spinner spinnerAreas, spinnerEstados, spinnerCidades, spinnerSubdistritos;
-    ImageView filtro;
+    Spinner spinnerAreas, spinnerEstados, spinnerCidades;
+    ImageView imagemfiltro;
     CardView cardViewFiltro;
+    Button buttonFiltrar;
 
     Cidades[] municipios = null;
 
@@ -49,13 +53,12 @@ public class ListaAdvogados extends AppCompatActivity {
         spinnerAreas = findViewById(R.id.filtrarArea);
         spinnerEstados = findViewById(R.id.filtrarEstado);
         spinnerCidades = findViewById(R.id.filtrarCidade);
-        spinnerSubdistritos = findViewById(R.id.filtrarSubdistritos);
 
         spinnerCidades.setEnabled(false);
-        spinnerSubdistritos.setEnabled(false);
 
-        filtro = findViewById(R.id.filtrar);
+        imagemfiltro = findViewById(R.id.filtrar);
         cardViewFiltro = findViewById(R.id.cardFiltro);
+        buttonFiltrar = findViewById(R.id.bottomFiltrar);
 
         //Criando um array de areas de trabalho no spinner
         ArrayAdapter<CharSequence> adapterAreas = ArrayAdapter.createFromResource(this, R.array.areas_atuacao, android.R.layout.simple_spinner_item);
@@ -148,9 +151,20 @@ public class ListaAdvogados extends AppCompatActivity {
             }
         });
 
+        buttonFiltrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String area = spinnerAreas.getSelectedItem().toString();
+                String estado = spinnerEstados.getSelectedItem().toString();
+                String cidade = spinnerCidades.getSelectedItem().toString();
+                System.out.println(area + estado + cidade);
+            }
+        });
+
         final int[] clique = {1};
 
-        filtro.setOnClickListener(new View.OnClickListener() {
+        imagemfiltro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -187,9 +201,6 @@ public class ListaAdvogados extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false));
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
-
-
-
 
     }
 
@@ -248,27 +259,6 @@ public class ListaAdvogados extends AppCompatActivity {
 
     private void solicitarSubdistritos(String idMunicipio) {
         String respostaSubdistritos = executaApiIBGE("subdistrito", idMunicipio);
-
-        Gson gsonSubdistritos = new GsonBuilder().setPrettyPrinting().create();
-        Subdistritos[] subdistritos = gsonSubdistritos.fromJson(String.valueOf(respostaSubdistritos), Subdistritos[].class);
-
-        final ArrayList<String> subdistritosParaSpinner = new ArrayList<>();
-
-        for (Subdistritos subdistrito: subdistritos){
-            subdistritosParaSpinner.add(subdistrito.getNome());
-        }
-
-        //Ordena em ordem alfabética
-        Collections.sort(subdistritosParaSpinner);
-
-        subdistritosParaSpinner.add(0, "Selecione o Subdistrito");
-
-        spinnerSubdistritos.setEnabled(true);
-
-        //Criando um array de municipios no spinner
-        ArrayAdapter<String> adapterSubdistritos = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, subdistritosParaSpinner);
-        spinnerSubdistritos.setAdapter(adapterSubdistritos);
-
     }
 
         private String executaApiIBGE (String... params) {

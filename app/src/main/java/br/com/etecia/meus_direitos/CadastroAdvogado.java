@@ -33,20 +33,16 @@ import br.com.etecia.meus_direitos.objetos.Advogados;
 import br.com.etecia.meus_direitos.objetos.Cidades;
 import br.com.etecia.meus_direitos.objetos.Estados;
 import br.com.etecia.meus_direitos.objetos.Subdistritos;
+import br.com.etecia.meus_direitos.objetos.User;
 
 public class CadastroAdvogado extends AppCompatActivity {
-
-    private static final int CODE_GET_REQUEST = 1024;
-    private static final int CODE_POST_REQUEST = 1025;
 
     Button btnCadastrarAdvogado;
     ImageView voltar;
     EditText edtNomeAdvogado, edtEmail, edtTelefone, edtRegistroOAB, edtSenha;
-    Spinner spinnerEstados, spinnerCidades, spinnerSubdistritos;
+    Spinner spinnerEstado, spinnerCidade;
 
     Cidades[] municipios = null;
-    boolean isUpdating = false;
-    List<Advogados> AdvogadosList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,14 +54,12 @@ public class CadastroAdvogado extends AppCompatActivity {
         edtNomeAdvogado = findViewById(R.id.nomeAdvogado);
         edtEmail = findViewById(R.id.email);
         edtTelefone = findViewById(R.id.telefone);
-        spinnerCidades = findViewById(R.id.cidade);
-        spinnerEstados = findViewById(R.id.estado);
         edtRegistroOAB = findViewById(R.id.registroOAB);
         edtSenha = findViewById(R.id.senha);
 
-        spinnerEstados = findViewById(R.id.filtrarEstado);
-        spinnerCidades = findViewById(R.id.filtrarCidade);
-        spinnerCidades.setEnabled(false);
+        spinnerEstado = findViewById(R.id.estadoSpinner);
+        spinnerCidade = findViewById(R.id.cidadeSpinner);
+        spinnerCidade.setEnabled(true);
 
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,10 +70,12 @@ public class CadastroAdvogado extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btncadastrarAdvogado).setOnClickListener(view -> {
+        btnCadastrarAdvogado.setOnClickListener(view -> {
             //se o usuário pressionou o botão registrar
             //aqui vamos registrar o usuário no servidor
             Intent intent = new Intent(getApplicationContext(), Chip_filtro_areas.class);
+            String estado = spinnerEstado.getSelectedItem().toString();
+            String cidade = spinnerCidade.getSelectedItem().toString();
             registerUser();
             startActivity(intent);
             finish();
@@ -103,13 +99,13 @@ public class CadastroAdvogado extends AppCompatActivity {
 
         //Criando um array de estados no spinner
         ArrayAdapter<String> adapterEstados = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, estadosParaSpinner);
-        spinnerEstados.setAdapter(adapterEstados);
+        spinnerEstado.setAdapter(adapterEstados);
 
-        spinnerEstados.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerEstado.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 for (Estados estado : estados) {
-                    if (estado.getNome().equals(spinnerEstados.getSelectedItem().toString())) {
+                    if (estado.getNome().equals(spinnerEstado.getSelectedItem().toString())) {
                         solicitarMunicipios(estado.getSigla());
                     }
                 }
@@ -121,23 +117,22 @@ public class CadastroAdvogado extends AppCompatActivity {
             }
         });
 
-        spinnerCidades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerCidade.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 for (Cidades cidade : municipios) {
-                    if (cidade.getNome().equals(spinnerCidades.getSelectedItem().toString())) {
+                    if (cidade.getNome().equals(spinnerCidade.getSelectedItem().toString())) {
                         solicitarSubdistritos(String.valueOf(cidade.getId()));
                     }
                 }
             }
-
-
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
+
     }
 
     private void solicitarMunicipios(String siglaEstado) {
@@ -159,37 +154,16 @@ public class CadastroAdvogado extends AppCompatActivity {
 
         municipiosParaSpinner.add(0, "Selecione a Cidade");
 
-        spinnerCidades.setEnabled(true);
+        spinnerCidade.setEnabled(true);
 
         //Criando um array de municipios no spinner
         ArrayAdapter<String> adapterMunicipios = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, municipiosParaSpinner);
-        spinnerCidades.setAdapter(adapterMunicipios);
+        spinnerCidade.setAdapter(adapterMunicipios);
 
     }
 
     private void solicitarSubdistritos(String idMunicipio) {
         String respostaSubdistritos = executaApiIBGE("subdistrito", idMunicipio);
-
-        Gson gsonSubdistritos = new GsonBuilder().setPrettyPrinting().create();
-        Subdistritos[] subdistritos = gsonSubdistritos.fromJson(String.valueOf(respostaSubdistritos), Subdistritos[].class);
-
-        final ArrayList<String> subdistritosParaSpinner = new ArrayList<>();
-
-        for (Subdistritos subdistrito: subdistritos){
-            subdistritosParaSpinner.add(subdistrito.getNome());
-        }
-
-        //Ordena em ordem alfabética
-        Collections.sort(subdistritosParaSpinner);
-
-        subdistritosParaSpinner.add(0, "Selecione o Subdistrito");
-
-        spinnerSubdistritos.setEnabled(true);
-
-        //Criando um array de municipios no spinner
-        ArrayAdapter<String> adapterSubdistritos = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, subdistritosParaSpinner);
-        spinnerSubdistritos.setAdapter(adapterSubdistritos);
-
     }
 
     private String executaApiIBGE (String... params) {
@@ -212,8 +186,8 @@ public class CadastroAdvogado extends AppCompatActivity {
         final String usuario = edtNomeAdvogado.getText().toString().trim();
         final String email = edtEmail.getText().toString().trim();
         final String senha = edtSenha.getText().toString().trim();
-        final String estado = spinnerEstados.getSelectedItem().toString();
-        final String cidade = spinnerCidades.getSelectedItem().toString();
+        final String estado = spinnerEstado.getSelectedItem().toString();
+        final String cidade = spinnerCidade.getSelectedItem().toString();
         final String numeroOAB = edtRegistroOAB.getText().toString().trim();
         final String telefone = edtTelefone.getText().toString().trim();
 
@@ -245,8 +219,8 @@ public class CadastroAdvogado extends AppCompatActivity {
         }
 
       /*  if (TextUtils.isEmpty(cidade)) {
-            spinnerCidades.setError("Selecione a cidade onde mora");
-            spinnerCidades.requestFocus();
+            spinnerCidade.setError("Selecione a cidade onde mora");
+            spinnerCidade.requestFocus();
             return;
         }
 
@@ -270,14 +244,12 @@ public class CadastroAdvogado extends AppCompatActivity {
 
         //se passar em todas as validações
 
-      /*  class RegisterUser extends AsyncTask<Void, Void, String> {
-
-            private ProgressBar progressBar;
+        class RegisterUser extends AsyncTask<Void, Void, String> {
 
             @Override
             protected String doInBackground(Void... voids) {
                 //criando objeto manipulador de requisição
-                RequestHandler requestHandler = new RequestHandler();*/
+                RequestHandler requestHandler = new RequestHandler();
 
                 //criando parâmetros de requisição
                 HashMap<String, String> params = new HashMap<>();
@@ -290,85 +262,12 @@ public class CadastroAdvogado extends AppCompatActivity {
                 params.put("telefone", telefone);
 
                 //Essa parte é nova, baseada no projeto hero
-        PerformNetworkRequest request = new PerformNetworkRequest(URLs.URL_REGISTER, params, CODE_POST_REQUEST);
-        request.execute();
 
-        btnCadastrarAdvogado.setText("Adicionar");
-
-        edtNomeAdvogado.setText("");
-        edtEmail.setText("");
-        edtTelefone.setText("");
-        edtRegistroOAB.setText("");
-        edtSenha.setText("");
-        spinnerEstados.setSelection(0);
-        spinnerCidades.setSelection(0);
-        isUpdating = false;
-
-
-        //retornando a resposta
-        //return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);
-    }
-
-    private void refreshUserList(JSONArray usuario) throws JSONException {
-        AdvogadosList.clear();
-
-        for (int i = 0; i < usuario.length(); i++) {
-            JSONObject obj = usuario.getJSONObject(i);
-
-            AdvogadosList.add(new Advogados(
-                    obj.getInt("imagem"),
-                    obj.getString("username"),
-                    obj.getString("cidade"),
-                    obj.getString("estado"),
-                    obj.getString("area_atuacao")
-            ));
-        }
-    }
-    private class PerformNetworkRequest extends AsyncTask<Void, Void, String> {
-        String url;
-        HashMap<String, String> params;
-        int requestCode;
-
-        PerformNetworkRequest(String url, HashMap<String, String> params, int requestCode) {
-            this.url = url;
-            this.params = params;
-            this.requestCode = requestCode;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            try {
-                JSONObject object = new JSONObject(s);
-                if (!object.getBoolean("error")) {
-                    Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
-                    refreshUserList(object.getJSONArray("usuario"));
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                //retornando a resposta
+                return requestHandler.sendPostRequest(URLs.URL_REGISTER, params);
             }
-        }
 
-        @Override
-        protected String doInBackground(Void... voids) {
-            RequestHandler requestHandler = new RequestHandler();
-
-            if (requestCode == CODE_POST_REQUEST)
-                return requestHandler.sendPostRequest(url, params);
-
-
-            if (requestCode == CODE_GET_REQUEST)
-                return requestHandler.sendGetRequest(url);
-
-            return null;
-        }
-    }
-           /* @Override
+            @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
 
@@ -390,8 +289,8 @@ public class CadastroAdvogado extends AppCompatActivity {
                                 userJson.getString("email"),
                                 userJson.getString("cidade"),
                                 userJson.getString("estado"),
-                                userJson.getString("numero_oab"),
-                                userJson.getString("telefone_cel")
+                                userJson.getString("numeroOAB"),
+                                userJson.getString("telefone")
                         );
 
                         //armazenando o usuário nas preferências compartilhadas
@@ -411,5 +310,5 @@ public class CadastroAdvogado extends AppCompatActivity {
         //executando a tarefa assíncrona
         RegisterUser ru = new RegisterUser();
         ru.execute();
-    }*/
+    }
 }

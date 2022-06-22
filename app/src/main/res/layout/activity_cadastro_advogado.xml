@@ -70,21 +70,25 @@
             android:hint="Número do Whatsapp"/>
 
         <Spinner
-            android:id="@+id/estado"
+            android:id="@+id/estadoSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="25dp"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/style_spinner_cinza"
             android:spinnerMode="dropdown" />
 
         <Spinner
-            android:id="@+id/cidade"
+            android:id="@+id/cidadeSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="25dp"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/style_spinner_cinza"
             android:spinnerMode="dropdown" />
