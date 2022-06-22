@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -90,8 +91,10 @@ public class ListaAdvogados extends AppCompatActivity {
         spinnerAreas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("Item clicado", String.valueOf(spinnerAreas.getSelectedItem()));
                 switch (position){
                     case 0:
+
                         break;
                     case 1:
                         break;
