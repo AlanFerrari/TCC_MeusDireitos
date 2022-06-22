@@ -218,17 +218,17 @@ public class CadastroAdvogado extends AppCompatActivity {
             return;
         }
 
-      /*  if (TextUtils.isEmpty(cidade)) {
-            spinnerCidade.setError("Selecione a cidade onde mora");
+        if (TextUtils.isEmpty(cidade)) {
+            spinnerCidade.setSelected(Boolean.parseBoolean("Selecione a cidade onde mora"));
             spinnerCidade.requestFocus();
             return;
         }
 
         if (TextUtils.isEmpty(estado)) {
-            spinnerEstados.setError("Selecione um estado onde mora");
-            spinnerEstados.requestFocus();
+            spinnerEstado.setSelected(Boolean.parseBoolean("Selecione um estado onde mora"));
+            spinnerEstado.requestFocus();
             return;
-        }*/
+        }
 
         if (TextUtils.isEmpty(numeroOAB)) {
             edtRegistroOAB.setError("Insira seu registro na OAB");
